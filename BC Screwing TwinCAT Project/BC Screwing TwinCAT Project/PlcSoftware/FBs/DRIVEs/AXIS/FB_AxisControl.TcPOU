@@ -1129,7 +1129,7 @@ MC_MOVE_ACT();
                                   <v n="Extensible">false</v>
                                 </o>
                                 <o>
-                                  <v n="Flags">1</v>
+                                  <v n="Flags">0</v>
                                   <v n="Fixed">true</v>
                                   <v n="Extensible">false</v>
                                 </o>
@@ -1182,7 +1182,7 @@ MC_MOVE_ACT();
                                     <v n="Address">""</v>
                                     <o n="Flags" t="Flags">
                                       <v n="Flags">0</v>
-                                      <v n="Fixed">false</v>
+                                      <v n="Fixed">true</v>
                                       <v n="Extensible">false</v>
                                     </o>
                                     <v n="LValue">false</v>
