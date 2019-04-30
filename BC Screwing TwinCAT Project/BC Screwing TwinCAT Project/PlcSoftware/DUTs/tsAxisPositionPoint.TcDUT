@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="tsAxisPositionPoint" Id="{916200c6-c0ab-4a64-9ca6-c5225a04f3ec}">
+    <Declaration><![CDATA[TYPE tsAxisPositionPoint :
+STRUCT
+	Name			: STRING;
+	Description		: STRING;
+	Target			: LREAL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

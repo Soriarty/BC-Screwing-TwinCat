@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="OPERATION_Controller" Id="{2c77ea48-d508-49bc-a424-4f74a9e55231}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM OPERATION_Controller
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="OPERATION_Controller">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

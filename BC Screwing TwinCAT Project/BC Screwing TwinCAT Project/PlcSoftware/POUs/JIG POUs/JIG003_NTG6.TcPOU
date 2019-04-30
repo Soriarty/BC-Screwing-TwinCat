@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="JIG003_NTG6" Id="{3c51b419-1918-4961-a0f2-7ec3c0fba751}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM JIG003_NTG6
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="JIG003_NTG6">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

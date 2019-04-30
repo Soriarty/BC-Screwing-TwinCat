@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="tsCoordinateBool" Id="{221de3b9-a1dc-4a0e-b16c-370cd86c23d3}">
+    <Declaration><![CDATA[TYPE tsCoordinateBool :
+STRUCT
+	X: BOOL;
+	Y: BOOL;
+	Z: BOOL;
+	C: BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

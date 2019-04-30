@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="JIG_PARTPRESENT" Id="{1d54f2cf-eae3-4146-b82e-ed6373ce7f4a}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM JIG_PARTPRESENT
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="JIG_PARTPRESENT">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

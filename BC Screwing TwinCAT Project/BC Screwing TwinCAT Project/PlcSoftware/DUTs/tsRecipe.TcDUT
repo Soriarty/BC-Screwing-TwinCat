@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="tsRecipe" Id="{469b79ea-7c97-47f3-8355-b3391aa6a1f7}">
+    <Declaration><![CDATA[TYPE tsRecipe :
+STRUCT
+	Rows			:	ARRAY[1..100] OF tsRecipeRow;
+	ID				:	DINT;
+	AdapterID		:	INT;
+	Active			:	BOOL;
+	ProductType		:	STRING;
+	ProductFamily	:	STRING;
+	AdapterType		:	INT; 						//0:= Empty, 1:=Grab, 2:=Taker, 3:=PartPresent,
+	Name			:	STRING;
+	Description		:	STRING;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

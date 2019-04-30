@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="JIG004_BMW_RAM" Id="{7bf8e275-8f9c-4656-86f8-a1712469daa6}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM JIG004_BMW_RAM
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="JIG004_BMW_RAM">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

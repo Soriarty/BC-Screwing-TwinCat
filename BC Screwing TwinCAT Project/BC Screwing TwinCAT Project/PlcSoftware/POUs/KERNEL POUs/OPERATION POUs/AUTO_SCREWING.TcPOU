@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="AUTO_SCREWING" Id="{a75a531f-4639-40ff-9871-b763ff98fbc9}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM AUTO_SCREWING
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="AUTO_SCREWING">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

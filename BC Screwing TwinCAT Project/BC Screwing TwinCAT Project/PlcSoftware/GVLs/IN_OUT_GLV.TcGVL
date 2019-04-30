@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="IN_OUT_GLV" Id="{0f7a0c5a-ad72-4885-aeba-80dc9f462005}">
+    <Declaration><![CDATA[VAR_GLOBAL
+	G_aAxisReferencies:				ARRAY [1..CE_AXIS_C] OF AXIS_REF;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

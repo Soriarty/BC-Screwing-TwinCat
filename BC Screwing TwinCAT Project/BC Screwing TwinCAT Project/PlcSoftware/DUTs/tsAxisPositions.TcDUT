@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="tsAxisPositions" Id="{aab3f0a6-8340-4942-8b3b-2db335615a14}">
+    <Declaration><![CDATA[TYPE tsAxisPositions :
+STRUCT
+	Positions:		ARRAY [1..20] OF tsAxisPositionPoint;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

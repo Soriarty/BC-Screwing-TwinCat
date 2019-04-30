@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="teAxisNames" Id="{ad018499-9cb0-438d-ba69-a25155a03ad2}">
+    <Declaration><![CDATA[TYPE teAxisNames :
+(
+	CE_AXIS_X:=1,			// X-axis drive
+	CE_AXIS_Y,				// Y-axis drive
+	CE_AXIS_Z,				// Z-axis drive
+	CE_AXIS_C 				// C-axis drive
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

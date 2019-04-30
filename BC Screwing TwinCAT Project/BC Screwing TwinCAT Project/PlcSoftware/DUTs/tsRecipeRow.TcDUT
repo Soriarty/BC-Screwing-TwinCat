@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="tsRecipeRow" Id="{05600497-cfa2-431e-8073-eeaa2453519f}">
+    <Declaration><![CDATA[TYPE tsRecipeRow :
+STRUCT
+	(*
+		PositionType
+		0:=No motion
+		1:=Only GoToTarget pos
+		2:=Only GoToTarget pos Trigger communication bit, and wait response
+		3:=GoToTarget pos with adapter sequence execution at end
+		4:=GoToTarget pos with adapter sequence execution at start
+		5:=GoToTarget pos with screwpicup at start and screwing at end
+	*)
+	PositionType: 			INT; 
+	Description:			STRING;				//Description of line
+	TargetPosition:			tsCoordinate;		//Coordinate of target position (X,Y,Z,C) 
+	IsActivePosition:		tsCoordinateBool;	//Activity of coordinate elements
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

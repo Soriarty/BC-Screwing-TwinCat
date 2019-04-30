@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="teScrewFeeders" Id="{afcd0368-fd89-4220-8ed4-e59648e14448}">
+    <Declaration><![CDATA[TYPE teScrewFeeders :
+(
+	CE_SCREW_FEED_1:=1,
+	CE_SCREW_FEED_2,
+	CE_SCREW_FEED_3,
+	CE_SCREW_FEED_4
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

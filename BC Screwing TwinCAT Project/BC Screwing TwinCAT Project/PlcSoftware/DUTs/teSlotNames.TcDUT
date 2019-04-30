@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="teSlotNames" Id="{c1b4f102-36a0-499b-b226-1144b88454b6}">
+    <Declaration><![CDATA[TYPE teSlotNames :
+(
+	CE_SLOT_01 := 1,
+	CE_SLOT_02,
+	CE_SLOT_03,
+	CE_SLOT_04,
+	CE_SLOT_05
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

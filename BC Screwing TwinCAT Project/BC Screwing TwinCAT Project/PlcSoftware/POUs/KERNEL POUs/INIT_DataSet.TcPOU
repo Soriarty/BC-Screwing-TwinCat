@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="INIT_DataSet" Id="{dd962844-95b4-45da-87b4-f7b24edbfb64}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM INIT_DataSet
+VAR
+	xWriteExecute:					BOOL;
+	xErrorInProces:					BOOL:=FALSE;
+	xCounter:						INT:=1;
+	
+	fbMC_WriteOffsetParameterX: 		MC_WriteParameter;
+	fbMC_WriteMinParameterX: 		MC_WriteParameter;
+	fbMC_WriteMaxParameterX: 		MC_WriteParameter;
+	
+	fbMC_WriteOffsetParameterY: 		MC_WriteParameter;
+	fbMC_WriteMinParameterY: 		MC_WriteParameter;
+	fbMC_WriteMaxParameterY: 		MC_WriteParameter;
+	
+	fbMC_WriteOffsetParameterZ: 		MC_WriteParameter;
+	fbMC_WriteMinParameterZ: 		MC_WriteParameter;
+	fbMC_WriteMaxParameterZ: 		MC_WriteParameter;
+	
+	fbMC_WriteOffsetParameterC: 		MC_WriteParameter;
+	fbMC_WriteMinParameterC: 		MC_WriteParameter;
+	fbMC_WriteMaxParameterC: 		MC_WriteParameter;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//X-Axis Write parameter
+fbMC_WriteOffsetParameterX(
+					Axis:= G_aAxisReferencies[CE_AXIS_X], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 1042, 
+					Value:= G_asDriveParameters[CE_AXIS_X].PositionOffset,
+					Error=>  xErrorInProces
+					);
+fbMC_WriteMinParameterX(
+					Axis:= G_aAxisReferencies[CE_AXIS_X], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 3, 
+					Value:= G_asDriveParameters[CE_AXIS_X].PositionMin,
+					Error=>  xErrorInProces
+					);
+fbMC_WriteMaxParameterX(
+					Axis:= G_aAxisReferencies[CE_AXIS_X], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 2, 
+					Value:= G_asDriveParameters[CE_AXIS_X].PositionMax,
+					Error=>  xErrorInProces
+					);
+//Y-Axis Write paramater
+fbMC_WriteOffsetParameterY(
+					Axis:= G_aAxisReferencies[CE_AXIS_Y], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 1042, 
+					Value:= G_asDriveParameters[CE_AXIS_Y].PositionOffset,
+					Error=>  xErrorInProces
+					);
+fbMC_WriteMinParameterY(
+					Axis:= G_aAxisReferencies[CE_AXIS_Y], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 3, 
+					Value:= G_asDriveParameters[CE_AXIS_Y].PositionMin,
+					Error=>  xErrorInProces
+					);
+fbMC_WriteMaxParameterY(
+					Axis:= G_aAxisReferencies[CE_AXIS_Y], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 2, 
+					Value:= G_asDriveParameters[CE_AXIS_Y].PositionMax,
+					Error=>  xErrorInProces
+					);
+//Z-Axis Write parameter
+fbMC_WriteOffsetParameterZ(
+					Axis:= G_aAxisReferencies[CE_AXIS_Z], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 1042, 
+					Value:= G_asDriveParameters[CE_AXIS_Z].PositionOffset,
+					Error=>  xErrorInProces
+					);
+fbMC_WriteMinParameterZ(
+					Axis:= G_aAxisReferencies[CE_AXIS_Z], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 3, 
+					Value:= G_asDriveParameters[CE_AXIS_Z].PositionMin,
+					Error=>  xErrorInProces
+					);
+fbMC_WriteMaxParameterZ(
+					Axis:= G_aAxisReferencies[CE_AXIS_Z], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 2, 
+					Value:= G_asDriveParameters[CE_AXIS_Z].PositionMax,
+					Error=>  xErrorInProces
+					);
+//C-Axis Write parameter
+fbMC_WriteOffsetParameterC(
+					Axis:= G_aAxisReferencies[CE_AXIS_C], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 1042, 
+					Value:= G_asDriveParameters[CE_AXIS_C].PositionOffset,
+					Error=>  xErrorInProces
+					);
+fbMC_WriteMinParameterC(
+					Axis:= G_aAxisReferencies[CE_AXIS_C], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 3, 
+					Value:= G_asDriveParameters[CE_AXIS_C].PositionMin,
+					Error=>  xErrorInProces
+					);
+fbMC_WriteMaxParameterC(
+					Axis:= G_aAxisReferencies[CE_AXIS_C], 
+					Execute:= xWriteExecute, 
+					ParameterNumber:= 2, 
+					Value:= G_asDriveParameters[CE_AXIS_C].PositionMax,
+					Error=>  xErrorInProces
+					);
+					
+IF xErrorInProces THEN
+	xWriteExecute:= FALSE;
+ELSE
+	xWriteExecute:= TRUE;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="INIT_DataSet">
+      <LineId Id="231" Count="0" />
+      <LineId Id="158" Count="5" />
+      <LineId Id="178" Count="0" />
+      <LineId Id="191" Count="5" />
+      <LineId Id="190" Count="0" />
+      <LineId Id="198" Count="5" />
+      <LineId Id="197" Count="0" />
+      <LineId Id="232" Count="0" />
+      <LineId Id="211" Count="19" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="233" Count="0" />
+      <LineId Id="235" Count="19" />
+      <LineId Id="234" Count="0" />
+      <LineId Id="255" Count="0" />
+      <LineId Id="257" Count="19" />
+      <LineId Id="299" Count="5" />
+      <LineId Id="256" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
