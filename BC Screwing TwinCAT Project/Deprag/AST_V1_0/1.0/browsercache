@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Library Name="AST_V1_0, 1.0 (Deprag)">
+  <Node Name="Project Information" TypeGUID="{085afe48-c5d8-4ea5-ab0d-b35701fa6009}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{11c0fc3a-9bcf-4dd8-ac38-efb93363e521}" />
+  <Node Name="Library Manager" TypeGUID="{adb5cb65-8e1d-4a00-b70a-375ea27582f3}" EmbeddedTypeGUIDs="" ObjectGUID="{d1b8f5bc-cbdd-4cdc-8572-92d9dc35243d}" />
+  <Node Name="Data types" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{73429ee5-8ea9-4b1f-a988-a00e8d58815b}" />
+  <Node Name="AST11" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{40139550-20b3-44f7-bb33-8d50f1932548}" />
+  <Node Name="tAST11" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{103fe951-bbf0-4c84-ba3b-da9afe965de4}" />
+  <Node Name="tAST11control" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{e70e714c-7c75-4a34-8e24-5ec7c3d67949}" />
+  <Node Name="tAST11data" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{75920114-3a42-42a2-bae9-c1f99fdc4463}" />
+  <Node Name="tAST11Rx" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{511df3ed-1ad5-4bbb-88ac-247f9b763e3f}" />
+  <Node Name="tAST11state" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{f202703e-3835-4b43-bc6a-f6503dbc3019}" />
+  <Node Name="tAST11Tx" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{f308fb7d-f3c7-41d7-999e-46731a4c77bf}" />
+  <Node Name="AST40" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{302c9418-133a-455a-8564-22d8a41bd278}" />
+  <Node Name="tAST40" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{4555a5d8-88d5-41a4-bfaf-4218897bf0e1}" />
+  <Node Name="tAST40control" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{9a87747f-0730-47d9-be82-93383e735de8}" />
+  <Node Name="tAST40data" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{436394df-fbd6-452d-bbc6-843ebd8bff49}" />
+  <Node Name="tAST40Rx" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{4911b480-7753-4179-a995-a126a3d9f10f}" />
+  <Node Name="tAST40state" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{652a246e-d430-48cf-acb1-1f90f6ddefcf}" />
+  <Node Name="tAST40Tx" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{ccdf1531-cdc7-4103-8a5f-65e4d096201a}" />
+  <Node Name="AST6" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{0144b398-a836-4d54-adde-e7cf68742589}" />
+  <Node Name="tAST6" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{aa35c6f3-a86d-4f12-a960-d300b1791a36}" />
+  <Node Name="tAST6control" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{597e4d21-dc29-4356-a38b-c9eae8342ddf}" />
+  <Node Name="tAST6data" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{31390865-9f55-4d7b-b672-1a4873ab3d01}" />
+  <Node Name="tAST6Rx" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{66e2c94c-69a9-468c-a45b-efc3c9f3db40}" />
+  <Node Name="tAST6state" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{f9f2d4bb-bd09-47da-a116-fc2363fad64c}" />
+  <Node Name="tAST6Tx" TypeGUID="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{f054ff08-bbc4-4d9a-a1a2-fcbbaed90ac1}" />
+  <Node Name="Global Variables" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{1b8cb1c3-bc73-4e4a-81fa-b06a685862a2}" />
+  <Node Name="Globale_Variablen" TypeGUID="{ffbfa93a-b94d-45fc-a329-229860183b1d}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" ObjectGUID="{12db3940-76d2-45b1-a1e0-131b2c561437}" />
+  <Node Name="POUs" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{1a9b3706-e280-4b80-a619-f1d80a53868c}" />
+  <Node Name="AST11" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{f5536455-6795-4b97-a9bf-cf902ed984b4}" />
+  <Node Name="FB_AST11" TypeGUID="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94};{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{fa9ab81e-1953-4e5a-892e-7f804b36bd12}">
+    <Node Name="mthConvertControlSignal" TypeGUID="{8ac092e5-3128-4e26-9e7e-11016c6684f2}" EmbeddedTypeGUIDs="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{f9f943e9-ea24-4920-bcf9-6739f6c2b87c}" />
+    <Node Name="mthConvertFinalData" TypeGUID="{8ac092e5-3128-4e26-9e7e-11016c6684f2}" EmbeddedTypeGUIDs="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{6e18f706-49d7-4a54-9b19-656ff596a404}" />
+    <Node Name="mthConvertStatusSignal" TypeGUID="{8ac092e5-3128-4e26-9e7e-11016c6684f2}" EmbeddedTypeGUIDs="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{8753deb6-64e8-4a46-98a9-069a765d478c}" />
+  </Node>
+  <Node Name="FC_ConvertUnitAST11" TypeGUID="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94};{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{afe85ef1-35aa-4e54-8e7e-dcc992e29b8a}" />
+  <Node Name="AST40" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{93d9827b-fae6-48a7-8267-090717829090}" />
+  <Node Name="FB_AST40" TypeGUID="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94};{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{664804db-6f29-4cd6-b46e-c7a105b3d6aa}">
+    <Node Name="mthConvertControlSignal" TypeGUID="{8ac092e5-3128-4e26-9e7e-11016c6684f2}" EmbeddedTypeGUIDs="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{574d6149-7cd7-4998-b578-4c080d923887}" />
+    <Node Name="mthConvertFinalData" TypeGUID="{8ac092e5-3128-4e26-9e7e-11016c6684f2}" EmbeddedTypeGUIDs="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{7312f570-bd89-4283-8af7-fc1c09dbf64f}" />
+    <Node Name="mthConvertStatusSignal" TypeGUID="{8ac092e5-3128-4e26-9e7e-11016c6684f2}" EmbeddedTypeGUIDs="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{16f1ba22-df3e-4118-9e6e-edb2805b2563}" />
+  </Node>
+  <Node Name="FC_ConvertUnitAST40" TypeGUID="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94};{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{bb98e251-799b-4553-8b75-3f982e63d6ed}" />
+  <Node Name="AST6" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{14cb1db9-ecab-43b1-b9a2-8aa22dd7a688}" />
+  <Node Name="FB_AST6" TypeGUID="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94};{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{3aca4d6e-7a43-4534-830a-5c9f2a35743e}">
+    <Node Name="mthConvertControlSignal" TypeGUID="{8ac092e5-3128-4e26-9e7e-11016c6684f2}" EmbeddedTypeGUIDs="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{296f1482-df08-462f-a8d0-344154695e45}" />
+    <Node Name="mthConvertFinalData" TypeGUID="{8ac092e5-3128-4e26-9e7e-11016c6684f2}" EmbeddedTypeGUIDs="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{a251c734-744d-4f16-a521-c0e774cb29c5}" />
+    <Node Name="mthConvertStatusSignal" TypeGUID="{8ac092e5-3128-4e26-9e7e-11016c6684f2}" EmbeddedTypeGUIDs="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{ab30fc11-b3b8-4fa2-83f3-d6ff9270083c}" />
+  </Node>
+  <Node Name="FC_ConvertUnitAST6" TypeGUID="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94};{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{42f1a66f-44dc-4cf4-966f-84fff78e3261}" />
+  <Node Name="Internal" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{90a68849-9a39-4367-9e80-aa57239e2bfc}" />
+  <Node Name="Merge_Byte2DInt" TypeGUID="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94};{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{715af615-8b7f-45e1-8419-71bc9ec192ce}" />
+  <Node Name="Merge_Byte2Int" TypeGUID="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94};{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{ecc99833-7f84-4592-adab-d011762b82a2}" />
+  <Node Name="Merge_Byte2Real" TypeGUID="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94};{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{acd02bd1-c86c-4819-9d9b-fb92a0393a20}" />
+  <Node Name="Split_Int2Byte" TypeGUID="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94};{3b83b776-fb25-43b8-99f2-3c507c9143fc}" ObjectGUID="{701d1d1c-3fba-47aa-8b69-069625bdaaa3}" />
+  <Node Name="Version" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{55b34e84-ff02-4981-9f6f-e2fdade919c0}" />
+  <Node Name="Global_Version" TypeGUID="{ffbfa93a-b94d-45fc-a329-229860183b1d}" EmbeddedTypeGUIDs="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Comment=" This function has been automatically generated from the project information." ObjectGUID="{099e2cba-030a-4ef8-9cd1-0421ba4f6e42}" />
+  <Node Name="Visualizations" TypeGUID="{738bea1e-99bb-4f04-90bb-a7a567e74e3a}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{789fdcd2-8066-492d-b9e2-3b952a3169e7}" />
+  <Node Name="Project Settings" TypeGUID="{8753fe6f-4a22-4320-8103-e553c4fc8e04}" EmbeddedTypeGUIDs="" ProvidesLanguageModel="false" ObjectGUID="{6470a90f-b7cb-43ac-9ae5-94b2338b4573}" />
+</Library>
