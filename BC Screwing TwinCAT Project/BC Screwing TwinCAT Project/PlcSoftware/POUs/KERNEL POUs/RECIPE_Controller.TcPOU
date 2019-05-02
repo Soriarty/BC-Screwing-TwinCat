@@ -3,14 +3,25 @@
   <POU Name="RECIPE_Controller" Id="{fe0b8a2c-7755-48b6-8b7f-aa457ab7aa7b}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM RECIPE_Controller
 VAR	
-	
+	xExecuteNextLine:		BOOL;
+	xDoneActualLine:		BOOL;
+	nCommandID:				INT;
+	nAdapterParameter:		INT;
+	nTargetFeeder:			INT;
+	nScrewingProgram:		INT;
+	sGoToTraget:			tsCoordinateBool;
+	sTargetCoordinate:		tsCoordinate;	
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[(*
+	Recipe read from file, write to file, and create new
+*)]]></ST>
     </Implementation>
     <LineIds Name="RECIPE_Controller">
       <LineId Id="12" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="30" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

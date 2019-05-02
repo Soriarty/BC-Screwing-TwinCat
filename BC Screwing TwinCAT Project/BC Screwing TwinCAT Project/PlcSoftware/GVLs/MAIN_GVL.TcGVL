@@ -2,19 +2,28 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="MAIN_GVL" Id="{8a90cd30-80b2-4b65-a07c-67fb08b99178}">
     <Declaration><![CDATA[VAR_GLOBAL
-	G_asActiveRecipe:				ARRAY [1..CE_SLOT_05] OF tsRecipe;					//Currently active recipe.
+	G_xAutoMode:					BOOL;
+	
+	G_nSequenceLength:				INT;
+	G_xSequenceRowReady:			BOOL;
+	G_xSequenceRowDone:				BOOL;
+	
 	G_xManualMoveMode:				BOOL:=TRUE;											//1:= continous, 0:= stepper
 	G_lrOverride:					LREAL;												//Main overrride value
 	G_lrManualOverride:				LREAL:=20;
 	G_lrStepSize:					LREAL:=0.1;
 	G_lrMaximumVelocity:			LREAL:=600;
+	
 	G_sActualPosition:				tsCoordinate;										//Actual coordinate
-	G_sTargetPosition:				tsCoordinate;										//Actua target position
+	G_sTargetPosition:				tsCoordinate;										//Actual target position
+	
 	G_sAxisReady:					tsCoordinateBool;									//Axis ready to move state container
 	G_sAxisDone:					tsCoordinateBool;									//Axis done state container
-	G_sAckAxisDone:					tsCoordinateBool;									//Axis done state container
+	G_sAckAxisDone:					tsCoordinateBool;									//Axis done acknowledge container
+	
 	G_sAxisJogForward:				tsCoordinateBool;									//Axis jog forward
 	G_sAxisJogBackward:				tsCoordinateBool;									//Axis jog backward
+	
 	G_sStartToPos:					tsCoordinateBool;									//Start to position
 	G_xPowerOn: 					BOOL:=TRUE;
 END_VAR]]></Declaration>

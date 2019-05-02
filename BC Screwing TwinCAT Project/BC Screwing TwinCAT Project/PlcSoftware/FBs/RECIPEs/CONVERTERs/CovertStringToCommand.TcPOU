@@ -3,6 +3,7 @@
   <POU Name="CovertStringToCommand" Id="{06df8464-a601-408f-bafb-572925ca6d4a}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK CovertStringToCommand
 VAR_INPUT
+	
 END_VAR
 VAR_OUTPUT
 END_VAR

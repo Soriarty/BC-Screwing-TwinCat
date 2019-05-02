@@ -10,34 +10,40 @@ END_VAR
       <ST><![CDATA[INIT_DataSet();
 RECIPE_Controller();
 DRIVE_Controller();
+OPERATION_Controller();
 
 (*
-	Fill the recipie variables 
-		#CMD is represent IsCOMMAND
-		XXX 3 digit integer represent the JigID
-		XXX 3 digit integer represent the Command type
-		
-		Example:
-		#CMD000000#END									- START OF SEQUENCE (No PARAMETER)
-		#CMD999999#END									- END OF SEQUENCE (No PARAMETER)
-		#CMD001000#END 									- EXECUTE THE No.:0 ADAPTER SEQUENCE (No PARAMETER)
-		#CMD001005#END 									- EXECUTE THE No.:5 ADAPTER SEQUENCE (No PARAMETER)
-		#CMD001015#PARAM:125.1265#END					- EXECUTE THE No.:5 ADAPTER SEQUENCE (With PARAMETER)
-		#CMD001100#POS:1#END							- GO TO POSITION
-		#CMD001110#POS:1#SCREW:2#SCREWPRG:26#END		- GO TO POSITION
+		#START:xxxx - contains the length of the sequence 4 digit [0-9]
+		#CMD:xxxx - command where 
+			4 digit[0-9] - where:
+				1. digit is CommandID 			| 0 - No command 	| 1 - Move to position 	| 2 - AdapterProgramID
+				2. digit is ParameterDigit 01 	|	null			| (Feeder No.) 			| (Parameter)
+				3. digit is ParameterDigit 02 	|	null			| (Screwing program)	| (Parameter)
+				4. digit is ParameterDigit 03 	| 	null			| (Screwing program)	| (Parameter)
+		#X:x.x - target coordinate, if null then no movement.
 *)
 IF bInit THEN
-	RECIPE.SequenceArray:= __NEW(STRING, 10);	
-	RECIPE.SequenceArray[0]:='#CMD000000#END'; 			
-	RECIPE.SequenceArray[1]:='#CMD001100#POS:0#END';
-	RECIPE.SequenceArray[2]:='#CMD001100#POS:1#END';
-	RECIPE.SequenceArray[3]:='#CMD001005#POS:2#END';
-	RECIPE.SequenceArray[4]:='#CMD001100#POS:3#END';
-	RECIPE.SequenceArray[5]:='#CMD001100#POS:4#END';
-	RECIPE.SequenceArray[6]:='#CMD001003#POS:5#END';
-	RECIPE.SequenceArray[7]:='#CMD001100#POS:6#END';
-	RECIPE.SequenceArray[8]:='#CMD001100#POS:7#END';
-	RECIPE.SequenceArray[9]:='#CMD999999#END';	
+	
+	RECIPE.SequenceArray:= __NEW(STRING, 12);	
+	
+	RECIPE.SequenceArray[0]:=	'#START:0012#END'; 			
+	RECIPE.SequenceArray[1]:=	'#CMD:1000#X:142.165#Y:142.165#Z:142.165#C:null#END';
+	RECIPE.SequenceArray[2]:=	'#CMD:1000#X:null#Y:200.01#Z:240#C:null#END';
+	RECIPE.SequenceArray[3]:=	'#CMD:2005#X:0#Y:0#Z:0#C:null#END';
+	RECIPE.SequenceArray[4]:=	'#CMD:1000#X:100#Y:200#Z:100#C:null#END';
+	RECIPE.SequenceArray[5]:=	'#CMD:1000#X:null#Y:400#Z:0#C:null#END';
+	RECIPE.SequenceArray[6]:=	'#CMD:2031#X:null#Y:null#Z:null#C:null#END';
+	RECIPE.SequenceArray[7]:=	'#CMD:1000#X:142.165#Y:142.165#Z:142.165#C:null#END';
+	RECIPE.SequenceArray[8]:=	'#CMD:1000#X:null#Y:null#Z:null#C:null#END';
+	RECIPE.SequenceArray[9]:=	'#CMD:1224#X:-25.02#Y:-36#Z:90.6#C:null';	
+	RECIPE.SequenceArray[10]:=	'#CMD:1425#X:142.165#Y:142.165#Z:142.165#C:null#END';
+	RECIPE.SequenceArray[11]:=	'#CMD:9000#X:null#Y:null#Z:null#C:null#END';
+	
+	RECIPE.ID:='023';
+	RECIPE.JigID:='014';
+	RECIPE.Name:='TestSequence';
+	RECIPE.Description:='This is a test sequence description!';
+	
 	bInit:=FALSE;		
 END_IF
 
@@ -47,17 +53,23 @@ END_IF
       <LineId Id="17" Count="0" />
       <LineId Id="2" Count="0" />
       <LineId Id="7" Count="0" />
+      <LineId Id="78" Count="0" />
       <LineId Id="23" Count="0" />
       <LineId Id="22" Count="0" />
-      <LineId Id="42" Count="3" />
-      <LineId Id="48" Count="5" />
-      <LineId Id="46" Count="0" />
-      <LineId Id="54" Count="1" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="65" Count="3" />
+      <LineId Id="63" Count="0" />
       <LineId Id="40" Count="0" />
       <LineId Id="25" Count="0" />
+      <LineId Id="75" Count="0" />
       <LineId Id="27" Count="0" />
+      <LineId Id="77" Count="0" />
       <LineId Id="29" Count="0" />
       <LineId Id="31" Count="8" />
+      <LineId Id="57" Count="1" />
+      <LineId Id="69" Count="5" />
       <LineId Id="56" Count="0" />
       <LineId Id="28" Count="0" />
       <LineId Id="24" Count="0" />
