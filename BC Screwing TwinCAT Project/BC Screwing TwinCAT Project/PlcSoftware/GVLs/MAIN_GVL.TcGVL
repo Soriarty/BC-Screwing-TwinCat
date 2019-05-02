@@ -2,8 +2,9 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="MAIN_GVL" Id="{8a90cd30-80b2-4b65-a07c-67fb08b99178}">
     <Declaration><![CDATA[VAR_GLOBAL
+	G_xComProtocol:					BOOL:= TRUE;										//TRUE:=OPC, FALSE:=LOCAL
 	G_asActiveRecipe:				ARRAY [1..CE_SLOT_05] OF tsRecipe;					//Currently active recipe.
-	G_xManualMoveMode:				BOOL:=TRUE;												//1:= continous, 0:= stepper
+	G_xManualMoveMode:				BOOL:=TRUE;											//1:= continous, 0:= stepper
 	G_lrOverride:					LREAL;												//Main overrride value
 	G_lrManualOverride:				LREAL:=20;
 	G_lrStepSize:					LREAL:=0.1;

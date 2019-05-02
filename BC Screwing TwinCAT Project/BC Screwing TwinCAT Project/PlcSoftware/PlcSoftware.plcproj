@@ -135,6 +135,15 @@
     <Compile Include="POUs\KERNEL POUs\INIT_DataSet.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\KERNEL POUs\MES POUs\LOCAL_COM_Controller.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\KERNEL POUs\MES POUs\OPCUA_Controller.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\KERNEL POUs\MES_Controller.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\KERNEL POUs\OPERATION POUs\AUTO_POSITION.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -181,6 +190,7 @@
     <Folder Include="GVLs" />
     <Folder Include="FBs" />
     <Folder Include="POUs\JIG POUs\JIG TYPE POUs" />
+    <Folder Include="POUs\KERNEL POUs\MES POUs" />
     <Folder Include="POUs\KERNEL POUs\OPERATION POUs" />
     <Folder Include="TASKs" />
     <Folder Include="POUs" />

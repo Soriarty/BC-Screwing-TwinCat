@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="OPCUA_Controller" Id="{f5b49519-bcb1-42c8-b86d-25a996ac6a0b}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM OPCUA_Controller
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="OPCUA_Controller">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
