@@ -223,6 +223,10 @@
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_Module</Namespace>
     </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_PLCopen_OpcUa">
+      <DefaultResolution>Tc3_PLCopen_OpcUa, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_PLCopen_OpcUa</Namespace>
+    </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="PlcSoftware.tmc">

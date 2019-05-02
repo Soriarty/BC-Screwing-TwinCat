@@ -6,10 +6,18 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[IF G_xComProtocol THEN
+	OPCUA_Controller();
+ELSE
+	LOCAL_COM_Controller();
+END_IF]]></ST>
     </Implementation>
     <LineIds Name="MES_Controller">
       <LineId Id="5" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="7" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

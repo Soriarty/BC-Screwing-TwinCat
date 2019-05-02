@@ -2,8 +2,8 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="PERSIST_GLV" Id="{d47ccd71-0f2e-45fa-bb9b-384e297f704f}">
     <Declaration><![CDATA[VAR_GLOBAL PERSISTENT
-	G_xExistCAxis:						BOOL:=TRUE;
-
+	G_xExistCAxis:					BOOL:=TRUE;							//TRUE:=Exist C-Axis, FALSE:=Not exist C-Axis
+	G_xComProtocol:					BOOL:= TRUE;						//TRUE:=OPC, FALSE:=LOCAL
 	//Individual axis positions like fider position...
 	G_asIndividualAxisPositions:		ARRAY [1..CE_AXIS_C] OF tsAxisPositions;
 	//Min/Max/Offset parameters for drives...
