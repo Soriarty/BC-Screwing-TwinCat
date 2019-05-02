@@ -3,6 +3,7 @@
   <POU Name="RECIPE_Controller" Id="{fe0b8a2c-7755-48b6-8b7f-aa457ab7aa7b}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM RECIPE_Controller
 VAR	
+	
 END_VAR
 ]]></Declaration>
     <Implementation>

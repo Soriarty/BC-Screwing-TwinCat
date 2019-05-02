@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="RECIPE" Id="{522ea7c1-aad8-4531-aa40-ad4be2711f72}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	ID:							STRING;
+	Name:						STRING;
+	JigID:						STRING;
+	Description:				STRING;
+	SequenceArray:				POINTER TO STRING;
+	PositionCollection:			array [0..100] of tsCoordinate;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

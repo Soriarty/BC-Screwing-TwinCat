@@ -53,6 +53,21 @@
     <Compile Include="FBs\HELPERs\RefactoringLongReal.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FBs\RECIPEs\CONVERTERs\ConvertCommandToString.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\RECIPEs\CONVERTERs\CovertStringToCommand.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\RECIPEs\FILEs\CreateRecipeFile.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\RECIPEs\FILEs\ReadRecipeFromFile.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\RECIPEs\FILEs\WriteRepcieToFile.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\AST40_GLV.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
@@ -82,6 +97,10 @@
       <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="GVLs\PERSIST_GLV.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\RECIPE.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
@@ -187,6 +206,9 @@
     <Folder Include="FBs\DRIVEs\AXIS" />
     <Folder Include="FBs\DRIVEs\PNEU" />
     <Folder Include="FBs\HELPERs" />
+    <Folder Include="FBs\RECIPEs" />
+    <Folder Include="FBs\RECIPEs\FILEs" />
+    <Folder Include="FBs\RECIPEs\CONVERTERs" />
     <Folder Include="GVLs" />
     <Folder Include="FBs" />
     <Folder Include="POUs\JIG POUs\JIG TYPE POUs" />
@@ -222,10 +244,6 @@
     <PlaceholderReference Include="Tc3_Module">
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_Module</Namespace>
-    </PlaceholderReference>
-    <PlaceholderReference Include="Tc3_PLCopen_OpcUa">
-      <DefaultResolution>Tc3_PLCopen_OpcUa, * (Beckhoff Automation GmbH)</DefaultResolution>
-      <Namespace>Tc3_PLCopen_OpcUa</Namespace>
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>

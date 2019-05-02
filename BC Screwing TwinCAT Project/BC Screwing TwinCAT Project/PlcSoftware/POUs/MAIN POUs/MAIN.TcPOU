@@ -3,19 +3,64 @@
   <POU Name="MAIN" Id="{015a52a7-5bf1-4c05-ba26-f68ec63d8824}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	
+	bInit:					BOOL:=TRUE;	
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[INIT_DataSet();
 RECIPE_Controller();
 DRIVE_Controller();
+
+(*
+	Fill the recipie variables 
+		#CMD is represent IsCOMMAND
+		XXX 3 digit integer represent the JigID
+		XXX 3 digit integer represent the Command type
+		
+		Example:
+		#CMD000000#END									- START OF SEQUENCE (No PARAMETER)
+		#CMD999999#END									- END OF SEQUENCE (No PARAMETER)
+		#CMD001000#END 									- EXECUTE THE No.:0 ADAPTER SEQUENCE (No PARAMETER)
+		#CMD001005#END 									- EXECUTE THE No.:5 ADAPTER SEQUENCE (No PARAMETER)
+		#CMD001015#PARAM:125.1265#END					- EXECUTE THE No.:5 ADAPTER SEQUENCE (With PARAMETER)
+		#CMD001100#POS:1#END							- GO TO POSITION
+		#CMD001110#POS:1#SCREW:2#SCREWPRG:26#END		- GO TO POSITION
+*)
+IF bInit THEN
+	RECIPE.SequenceArray:= __NEW(STRING, 10);	
+	RECIPE.SequenceArray[0]:='#CMD000000#END'; 			
+	RECIPE.SequenceArray[1]:='#CMD001100#POS:0#END';
+	RECIPE.SequenceArray[2]:='#CMD001100#POS:1#END';
+	RECIPE.SequenceArray[3]:='#CMD001005#POS:2#END';
+	RECIPE.SequenceArray[4]:='#CMD001100#POS:3#END';
+	RECIPE.SequenceArray[5]:='#CMD001100#POS:4#END';
+	RECIPE.SequenceArray[6]:='#CMD001003#POS:5#END';
+	RECIPE.SequenceArray[7]:='#CMD001100#POS:6#END';
+	RECIPE.SequenceArray[8]:='#CMD001100#POS:7#END';
+	RECIPE.SequenceArray[9]:='#CMD999999#END';	
+	bInit:=FALSE;		
+END_IF
+
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="17" Count="0" />
       <LineId Id="2" Count="0" />
       <LineId Id="7" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="42" Count="3" />
+      <LineId Id="48" Count="5" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="54" Count="1" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="31" Count="8" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="24" Count="0" />
       <LineId Id="12" Count="0" />
     </LineIds>
   </POU>
