@@ -26,6 +26,11 @@
 	
 	G_sStartToPos:					tsCoordinateBool;									//Start to position
 	G_xPowerOn: 					BOOL:=TRUE;
+	
+	//SFC Variables
+	SFCPause:BOOL;
+	SFCReset:BOOL;
+	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
