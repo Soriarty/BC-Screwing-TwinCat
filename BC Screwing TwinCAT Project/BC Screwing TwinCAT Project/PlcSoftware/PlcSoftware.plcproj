@@ -71,6 +71,15 @@
     <Compile Include="FBs\SUBFUNCTIONs\BLOW_DOW_SEQ.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FBs\SUBFUNCTIONs\END_RUN_SEQ.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\SUBFUNCTIONs\HOME_RUN_SEQ.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\SUBFUNCTIONs\PICKUP_SCREW_SEQ.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\AST40_GLV.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
