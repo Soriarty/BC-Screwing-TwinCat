@@ -68,10 +68,7 @@
     <Compile Include="FBs\RECIPEs\FILEs\WriteRepcieToFile.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FBs\SUBFUNCTIONs\GO_TO_BLOW.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FBs\SUBFUNCTIONs\GO_TO_END.TcPOU">
+    <Compile Include="FBs\SUBFUNCTIONs\BLOW_DOW_SEQ.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GVLs\AST40_GLV.TcGVL">
@@ -166,6 +163,15 @@
     <Compile Include="POUs\KERNEL POUs\MES_Controller.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\KERNEL POUs\OPERATIONs\AUTOMATIC_POSITION_TEST.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\KERNEL POUs\OPERATIONs\AUTOMATIC_SCREWING.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\KERNEL POUs\OPERATIONs\AUTOMATIC_SCREW_PICKUP_TEST.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\KERNEL POUs\OPERATION_Controller.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -205,6 +211,7 @@
     <Folder Include="FBs" />
     <Folder Include="POUs\JIG POUs\JIG TYPE POUs" />
     <Folder Include="POUs\KERNEL POUs\MES POUs" />
+    <Folder Include="POUs\KERNEL POUs\OPERATIONs" />
     <Folder Include="TASKs" />
     <Folder Include="POUs" />
     <Folder Include="POUs\MAIN POUs" />

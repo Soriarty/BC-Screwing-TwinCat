@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="AUTOMATIC_POSITION_TEST" Id="{c11d3553-987e-4a91-9492-85330ea33e6e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK AUTOMATIC_POSITION_TEST
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="AUTOMATIC_POSITION_TEST">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

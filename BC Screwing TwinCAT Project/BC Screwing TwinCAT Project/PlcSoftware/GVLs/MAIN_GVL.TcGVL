@@ -9,7 +9,7 @@
 	G_xSequenceRowDone:				BOOL;
 	
 	G_xManualMoveMode:				BOOL:=TRUE;											//1:= continous, 0:= stepper
-	G_lrOverride:					LREAL;												//Main overrride value
+	G_lrOverride:					LREAL:=20;												//Main overrride value
 	G_lrManualOverride:				LREAL:=20;
 	G_lrStepSize:					LREAL:=0.1;
 	G_lrMaximumVelocity:			LREAL:=600;
