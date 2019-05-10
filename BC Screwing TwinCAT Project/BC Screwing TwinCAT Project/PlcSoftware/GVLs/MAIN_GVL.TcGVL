@@ -4,33 +4,31 @@
     <Declaration><![CDATA[VAR_GLOBAL
 	G_xAutoMode:					BOOL;
 	
+	G_xErrorExist:					BOOL;  			
+	G_xErrorACK:					BOOL;
+	
 	G_nSequenceLength:				INT;
 	G_xSequenceRowReady:			BOOL;
 	G_xSequenceRowDone:				BOOL;
 	
-	G_xManualMoveMode:				BOOL:=TRUE;											//1:= continous, 0:= stepper
-	G_lrOverride:					LREAL:=20;												//Main overrride value
+	G_xManualMoveMode:				BOOL:=TRUE;						//1:= continous, 0:= stepper
+	G_lrOverride:					LREAL:=100;						//Main overrride value
 	G_lrManualOverride:				LREAL:=20;
 	G_lrStepSize:					LREAL:=0.1;
 	G_lrMaximumVelocity:			LREAL:=600;
 	
-	G_sActualPosition:				tsCoordinate;										//Actual coordinate
-	G_sTargetPosition:				tsCoordinate;										//Actual target position
+	G_sActualPosition:				tsCoordinate;					//Actual coordinate
+	G_sTargetPosition:				tsCoordinate;					//Actual target position
 	
-	G_sAxisReady:					tsCoordinateBool;									//Axis ready to move state container
-	G_sAxisDone:					tsCoordinateBool;									//Axis done state container
-	G_sAckAxisDone:					tsCoordinateBool;									//Axis done acknowledge container
+	G_sAxisReady:					tsCoordinateBool;				//Axis ready to move state container
+	G_sAxisDone:					tsCoordinateBool;				//Axis done state container
+	G_sAckAxisDone:					tsCoordinateBool;				//Axis done acknowledge container
 	
-	G_sAxisJogForward:				tsCoordinateBool;									//Axis jog forward
-	G_sAxisJogBackward:				tsCoordinateBool;									//Axis jog backward
+	G_sAxisJogForward:				tsCoordinateBool;				//Axis jog forward
+	G_sAxisJogBackward:				tsCoordinateBool;				//Axis jog backward
 	
-	G_sStartToPos:					tsCoordinateBool;									//Start to position
-	G_xPowerOn: 					BOOL:=TRUE;
-	
-	//SFC Variables
-	SFCPause:BOOL;
-	SFCReset:BOOL;
-	
+	G_sStartToPos:					tsCoordinateBool;				//Start to position
+	G_xPowerOn: 					BOOL:=TRUE;	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

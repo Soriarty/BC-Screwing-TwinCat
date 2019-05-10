@@ -2,11 +2,14 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="END_RUN_SEQ" Id="{bc6ad603-7798-4181-ad05-ef02a4f98eb2}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK END_RUN_SEQ
+VAR_INPUT
+	xJigEndDone:		BOOL;
+END_VAR
 VAR_IN_OUT
-	xExecute:		BOOL;
+	xExecute:			BOOL;
+	xDone:				BOOL;
 END_VAR
 VAR_OUTPUT
-	xDone:			BOOL;
 END_VAR
 VAR
 	tpReset:			TP;
@@ -26,17 +29,15 @@ END_VAR]]></Declaration>
 IF rtDone.Q THEN
 	xTransRelease:=FALSE;	
 	SFCReset:=TRUE;
+	xExecute:=FALSE;
 END_IF
 
 rtExecute(CLK:=xExecute);
 IF rtExecute.Q THEN
 	xTransRelease:=TRUE;
-	SFCReset:=FALSE;
 END_IF
 
-IF xExecute THEN
-	aSEQ_ACT();
-END_IF
+aSEQ_ACT();
 
 tpReset(IN:=SFCError, PT:=T#250MS);
 SFCReset:= tpReset.Q;]]></ST>
@@ -1121,8 +1122,8 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                               <v n="Value">"END"</v>
                               <v n="DefaultValue">""</v>
                             </o>
-                            <v n="Id">488L</v>
-                            <v n="IdParent">487L</v>
+                            <v n="Id">545L</v>
+                            <v n="IdParent">544L</v>
                           </o>
                           <o>
                             <v n="AttributeId">{7d894980-aeea-405c-a0f6-e2b26429c58f}</v>
@@ -1130,8 +1131,8 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                               <v n="Value">""</v>
                               <v n="DefaultValue">""</v>
                             </o>
-                            <v n="Id">489L</v>
-                            <v n="IdParent">487L</v>
+                            <v n="Id">546L</v>
+                            <v n="IdParent">544L</v>
                           </o>
                           <o>
                             <v n="AttributeId">{01580b27-6378-448b-8ecb-0e4b795b58d6}</v>
@@ -1139,8 +1140,8 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                               <v n="Value">"FALSE"</v>
                               <v n="DefaultValue">"FALSE"</v>
                             </o>
-                            <v n="Id">490L</v>
-                            <v n="IdParent">487L</v>
+                            <v n="Id">547L</v>
+                            <v n="IdParent">544L</v>
                           </o>
                           <o>
                             <v n="AttributeId">{bc882c11-1e91-4dd8-a6b8-2075724ed18b}</v>
@@ -1150,8 +1151,8 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                               <v n="Value">"0"</v>
                               <v n="DefaultValue">"0"</v>
                             </o>
-                            <v n="Id">491L</v>
-                            <v n="IdParent">487L</v>
+                            <v n="Id">548L</v>
+                            <v n="IdParent">544L</v>
                           </o>
                           <o>
                             <v n="AttributeId">{6844a48e-46c2-4cc8-a185-a478f3b99cc0}</v>
@@ -1159,8 +1160,8 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                               <v n="Value">"FALSE"</v>
                               <v n="DefaultValue">"FALSE"</v>
                             </o>
-                            <v n="Id">492L</v>
-                            <v n="IdParent">487L</v>
+                            <v n="Id">549L</v>
+                            <v n="IdParent">544L</v>
                           </o>
                           <o>
                             <v n="AttributeId">{62e1754b-7629-4e63-9cec-10ae0c536f1f}</v>
@@ -1168,8 +1169,8 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                               <v n="Value">"FALSE"</v>
                               <v n="DefaultValue">"FALSE"</v>
                             </o>
-                            <v n="Id">493L</v>
-                            <v n="IdParent">487L</v>
+                            <v n="Id">550L</v>
+                            <v n="IdParent">544L</v>
                           </o>
                           <o>
                             <v n="AttributeId">{cacf1a68-236e-47c2-b7b1-1cf9199718cb}</v>
@@ -1177,8 +1178,8 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                               <v n="Value">""</v>
                               <v n="DefaultValue">""</v>
                             </o>
-                            <v n="Id">494L</v>
-                            <v n="IdParent">487L</v>
+                            <v n="Id">551L</v>
+                            <v n="IdParent">544L</v>
                           </o>
                           <o>
                             <v n="AttributeId">{b693554c-1b01-4a8d-afde-9e3a46f7465d}</v>
@@ -1186,8 +1187,8 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                               <v n="Value">""</v>
                               <v n="DefaultValue">""</v>
                             </o>
-                            <v n="Id">495L</v>
-                            <v n="IdParent">487L</v>
+                            <v n="Id">552L</v>
+                            <v n="IdParent">544L</v>
                           </o>
                           <o>
                             <v n="AttributeId">{700a583f-b4d4-43e4-8c14-629c7cd3bec8}</v>
@@ -1195,8 +1196,8 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                               <v n="Value">"END_active"</v>
                               <v n="DefaultValue">""</v>
                             </o>
-                            <v n="Id">496L</v>
-                            <v n="IdParent">487L</v>
+                            <v n="Id">553L</v>
+                            <v n="IdParent">544L</v>
                           </o>
                           <o>
                             <v n="AttributeId">{a6b08bd8-b696-47e3-9cbf-7408b61c9ff8}</v>
@@ -1204,8 +1205,8 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                               <v n="Value">""</v>
                               <v n="DefaultValue">""</v>
                             </o>
-                            <v n="Id">497L</v>
-                            <v n="IdParent">487L</v>
+                            <v n="Id">554L</v>
+                            <v n="IdParent">544L</v>
                           </o>
                           <o>
                             <v n="AttributeId">{a2621e18-7de3-4ea6-ae6d-89e9e0b7befd}</v>
@@ -1213,11 +1214,100 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                               <v n="Value">""</v>
                               <v n="DefaultValue">""</v>
                             </o>
-                            <v n="Id">498L</v>
-                            <v n="IdParent">487L</v>
+                            <v n="Id">555L</v>
+                            <v n="IdParent">544L</v>
                           </o>
                         </l2>
-                        <v n="Id">487L</v>
+                        <v n="Id">544L</v>
+                        <v n="IdParent">1L</v>
+                      </o>
+                      <o t="SFCTransition">
+                        <v n="VariableName">"END__to__START"</v>
+                        <n n="EmbeddedTransition" />
+                        <l2 n="EmbeddedTransitionProperties" />
+                        <l2 n="Attributes" cet="SFCAttribute">
+                          <o>
+                            <v n="AttributeId">{38391c6d-6d4a-42f8-8ee7-9f45e5adafa8}</v>
+                            <o n="Value" t="StringValue">
+                              <v n="Value">"TRANSITION"</v>
+                              <v n="DefaultValue">""</v>
+                            </o>
+                            <v n="Id">557L</v>
+                            <v n="IdParent">556L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{7d894980-aeea-405c-a0f6-e2b26429c58f}</v>
+                            <o n="Value" t="StringValue">
+                              <v n="Value">""</v>
+                              <v n="DefaultValue">""</v>
+                            </o>
+                            <v n="Id">558L</v>
+                            <v n="IdParent">556L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{01580b27-6378-448b-8ecb-0e4b795b58d6}</v>
+                            <o n="Value" t="BoolValue">
+                              <v n="Value">"FALSE"</v>
+                              <v n="DefaultValue">"FALSE"</v>
+                            </o>
+                            <v n="Id">559L</v>
+                            <v n="IdParent">556L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{bc882c11-1e91-4dd8-a6b8-2075724ed18b}</v>
+                            <o n="Value" t="EnumValue">
+                              <v n="TemplateGuid">{79a4fdd5-c859-4de4-aa8d-c03372c880c2}</v>
+                              <n n="BaseType" />
+                              <v n="Value">"0"</v>
+                              <v n="DefaultValue">"0"</v>
+                            </o>
+                            <v n="Id">560L</v>
+                            <v n="IdParent">556L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{62e1754b-7629-4e63-9cec-10ae0c536f1f}</v>
+                            <o n="Value" t="BoolValue">
+                              <v n="Value">"FALSE"</v>
+                              <v n="DefaultValue">"FALSE"</v>
+                            </o>
+                            <v n="Id">561L</v>
+                            <v n="IdParent">556L</v>
+                          </o>
+                        </l2>
+                        <v n="Id">556L</v>
+                        <v n="IdParent">1L</v>
+                      </o>
+                      <o t="SFCJump">
+                        <l2 n="Attributes" cet="SFCAttribute">
+                          <o>
+                            <v n="AttributeId">{38391c6d-6d4a-42f8-8ee7-9f45e5adafa8}</v>
+                            <o n="Value" t="StringValue">
+                              <v n="Value">"START"</v>
+                              <v n="DefaultValue">""</v>
+                            </o>
+                            <v n="Id">541L</v>
+                            <v n="IdParent">540L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{7d894980-aeea-405c-a0f6-e2b26429c58f}</v>
+                            <o n="Value" t="StringValue">
+                              <v n="Value">""</v>
+                              <v n="DefaultValue">""</v>
+                            </o>
+                            <v n="Id">542L</v>
+                            <v n="IdParent">540L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{01580b27-6378-448b-8ecb-0e4b795b58d6}</v>
+                            <o n="Value" t="BoolValue">
+                              <v n="Value">"FALSE"</v>
+                              <v n="DefaultValue">"FALSE"</v>
+                            </o>
+                            <v n="Id">543L</v>
+                            <v n="IdParent">540L</v>
+                          </o>
+                        </l2>
+                        <v n="Id">540L</v>
                         <v n="IdParent">1L</v>
                       </o>
                     </l2>
@@ -1496,6 +1586,7 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
               <Type n="SFCAttributeDescription">{d851789d-af2c-4990-9d48-a7bdc9181773}</Type>
               <Type n="SFCElementList">{587d6556-cfe6-4e76-9cc9-fc0daf0c8c29}</Type>
               <Type n="SFCImplementationObject">{74f81948-1328-492c-b6c1-a9ea72048b28}</Type>
+              <Type n="SFCJump">{7e39ac27-154f-419a-a255-6a6cf37d5ed0}</Type>
               <Type n="SFCSegment">{f1db7f6f-4774-46a6-ad9b-a94414f875fc}</Type>
               <Type n="SFCStep">{86ee92a2-d863-4136-be27-82b36d84211c}</Type>
               <Type n="SFCTransition">{4ecb29e8-a90a-4646-84ac-2ff54215ab29}</Type>
@@ -1617,12 +1708,12 @@ xTransCondition:= ftTimePulse.Q;]]></ST>
     <Action Name="END_active" Id="{1f517bb0-1dc1-4788-be21-c812f57d6779}" FolderPath="xActive\">
       <Implementation>
         <ST><![CDATA[xDone:=TRUE;
-xTransCondition:=FALSE;]]></ST>
+xTransCondition:=xDone;]]></ST>
       </Implementation>
     </Action>
     <Action Name="EXE_JIG_END_active" Id="{4158d169-70f5-49c9-95bd-ffc06a364d40}" FolderPath="xActive\">
       <Implementation>
-        <ST><![CDATA[]]></ST>
+        <ST><![CDATA[xTransCondition:=xJigEndDone;]]></ST>
       </Implementation>
     </Action>
     <Action Name="MOVE_C_001_active" Id="{5b08fe0d-dc14-4350-bd8b-d7ab183cf320}" FolderPath="xActive\">
@@ -1686,7 +1777,12 @@ xTransCondition:= NOT xDone;]]></ST>
       </Implementation>
     </Transition>
     <LineIds Name="END_RUN_SEQ">
-      <LineId Id="17" Count="16" />
+      <LineId Id="17" Count="3" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="21" Count="4" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="32" Count="1" />
       <LineId Id="9" Count="0" />
     </LineIds>
     <LineIds Name="END_RUN_SEQ.ACK_DONE_AXIS_active">

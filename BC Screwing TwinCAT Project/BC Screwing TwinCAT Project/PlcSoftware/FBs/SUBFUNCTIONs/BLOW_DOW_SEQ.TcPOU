@@ -4,9 +4,10 @@
     <Declaration><![CDATA[FUNCTION_BLOCK BLOW_DOW_SEQ
 VAR_IN_OUT
 	xExecute:		BOOL;
+	xDone:			BOOL;
 END_VAR
 VAR_OUTPUT
-	xDone:			BOOL;
+	
 END_VAR
 VAR
 	tpReset:			TP;
@@ -27,17 +28,15 @@ END_VAR
 IF rtDone.Q THEN
 	xTransRelease:=FALSE;	
 	SFCReset:=TRUE;
+	xExecute:=FALSE;
 END_IF
 
 rtExecute(CLK:=xExecute);
 IF rtExecute.Q THEN
 	xTransRelease:=TRUE;
-	SFCReset:=FALSE;
 END_IF
 
-IF xExecute THEN
-	aSEQ_ACT();
-END_IF
+aSEQ_ACT();
 
 tpReset(IN:=SFCError, PT:=T#250MS);
 SFCReset:= tpReset.Q;
@@ -1396,9 +1395,126 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
                         <v n="Id">487L</v>
                         <v n="IdParent">1L</v>
                       </o>
+                      <o t="SFCTransition">
+                        <v n="VariableName">"END__to__START"</v>
+                        <n n="EmbeddedTransition" />
+                        <l2 n="EmbeddedTransitionProperties" />
+                        <l2 n="Attributes" cet="SFCAttribute">
+                          <o>
+                            <v n="AttributeId">{38391c6d-6d4a-42f8-8ee7-9f45e5adafa8}</v>
+                            <o n="Value" t="StringValue">
+                              <v n="Value">"TRANSITION"</v>
+                              <v n="DefaultValue">""</v>
+                            </o>
+                            <v n="Id">527L</v>
+                            <v n="IdParent">526L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{7d894980-aeea-405c-a0f6-e2b26429c58f}</v>
+                            <o n="Value" t="StringValue">
+                              <v n="Value">""</v>
+                              <v n="DefaultValue">""</v>
+                            </o>
+                            <v n="Id">528L</v>
+                            <v n="IdParent">526L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{01580b27-6378-448b-8ecb-0e4b795b58d6}</v>
+                            <o n="Value" t="BoolValue">
+                              <v n="Value">"FALSE"</v>
+                              <v n="DefaultValue">"FALSE"</v>
+                            </o>
+                            <v n="Id">529L</v>
+                            <v n="IdParent">526L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{bc882c11-1e91-4dd8-a6b8-2075724ed18b}</v>
+                            <o n="Value" t="EnumValue">
+                              <v n="TemplateGuid">{79a4fdd5-c859-4de4-aa8d-c03372c880c2}</v>
+                              <n n="BaseType" />
+                              <v n="Value">"0"</v>
+                              <v n="DefaultValue">"0"</v>
+                            </o>
+                            <v n="Id">530L</v>
+                            <v n="IdParent">526L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{62e1754b-7629-4e63-9cec-10ae0c536f1f}</v>
+                            <o n="Value" t="BoolValue">
+                              <v n="Value">"FALSE"</v>
+                              <v n="DefaultValue">"FALSE"</v>
+                            </o>
+                            <v n="Id">531L</v>
+                            <v n="IdParent">526L</v>
+                          </o>
+                        </l2>
+                        <v n="Id">526L</v>
+                        <v n="IdParent">1L</v>
+                      </o>
+                      <o t="SFCJump">
+                        <l2 n="Attributes" cet="SFCAttribute">
+                          <o>
+                            <v n="AttributeId">{38391c6d-6d4a-42f8-8ee7-9f45e5adafa8}</v>
+                            <o n="Value" t="StringValue">
+                              <v n="Value">"START"</v>
+                              <v n="DefaultValue">""</v>
+                            </o>
+                            <v n="Id">523L</v>
+                            <v n="IdParent">522L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{7d894980-aeea-405c-a0f6-e2b26429c58f}</v>
+                            <o n="Value" t="StringValue">
+                              <v n="Value">""</v>
+                              <v n="DefaultValue">""</v>
+                            </o>
+                            <v n="Id">524L</v>
+                            <v n="IdParent">522L</v>
+                          </o>
+                          <o>
+                            <v n="AttributeId">{01580b27-6378-448b-8ecb-0e4b795b58d6}</v>
+                            <o n="Value" t="BoolValue">
+                              <v n="Value">"FALSE"</v>
+                              <v n="DefaultValue">"FALSE"</v>
+                            </o>
+                            <v n="Id">525L</v>
+                            <v n="IdParent">522L</v>
+                          </o>
+                        </l2>
+                        <v n="Id">522L</v>
+                        <v n="IdParent">1L</v>
+                      </o>
                     </l2>
                   </o>
-                  <l2 n="Attributes" />
+                  <l2 n="Attributes" cet="SFCAttribute">
+                    <o>
+                      <v n="AttributeId">{38391c6d-6d4a-42f8-8ee7-9f45e5adafa8}</v>
+                      <o n="Value" t="StringValue">
+                        <v n="Value">""</v>
+                        <v n="DefaultValue">""</v>
+                      </o>
+                      <v n="Id">519L</v>
+                      <v n="IdParent">1L</v>
+                    </o>
+                    <o>
+                      <v n="AttributeId">{7d894980-aeea-405c-a0f6-e2b26429c58f}</v>
+                      <o n="Value" t="StringValue">
+                        <v n="Value">""</v>
+                        <v n="DefaultValue">""</v>
+                      </o>
+                      <v n="Id">520L</v>
+                      <v n="IdParent">1L</v>
+                    </o>
+                    <o>
+                      <v n="AttributeId">{01580b27-6378-448b-8ecb-0e4b795b58d6}</v>
+                      <o n="Value" t="BoolValue">
+                        <v n="Value">"FALSE"</v>
+                        <v n="DefaultValue">"FALSE"</v>
+                      </o>
+                      <v n="Id">521L</v>
+                      <v n="IdParent">1L</v>
+                    </o>
+                  </l2>
                   <v n="Id">1L</v>
                   <v n="IdParent">-1L</v>
                 </o>
@@ -1644,6 +1760,7 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
               <Type n="SFCAttributeDescription">{d851789d-af2c-4990-9d48-a7bdc9181773}</Type>
               <Type n="SFCElementList">{587d6556-cfe6-4e76-9cc9-fc0daf0c8c29}</Type>
               <Type n="SFCImplementationObject">{74f81948-1328-492c-b6c1-a9ea72048b28}</Type>
+              <Type n="SFCJump">{7e39ac27-154f-419a-a255-6a6cf37d5ed0}</Type>
               <Type n="SFCSegment">{f1db7f6f-4774-46a6-ad9b-a94414f875fc}</Type>
               <Type n="SFCStep">{86ee92a2-d863-4136-be27-82b36d84211c}</Type>
               <Type n="SFCTransition">{4ecb29e8-a90a-4646-84ac-2ff54215ab29}</Type>
@@ -1765,7 +1882,7 @@ xTransCondition:= ftTimePulse.Q;]]></ST>
     <Action Name="END_active" Id="{43cdd48b-c7d6-43c4-96c3-5db2a321ac7a}" FolderPath="xActive\">
       <Implementation>
         <ST><![CDATA[xDone:=TRUE;
-xTransCondition:=FALSE;]]></ST>
+xTransCondition:=xDone;]]></ST>
       </Implementation>
     </Action>
     <Action Name="MOVE_Y_001_active" Id="{24cb28b6-d1a1-4ed1-8316-eea14b0be8e3}" FolderPath="xActive\">
@@ -1840,15 +1957,13 @@ xTransCondition:= NOT xDone;]]></ST>
       <LineId Id="9" Count="0" />
       <LineId Id="25" Count="1" />
       <LineId Id="38" Count="0" />
+      <LineId Id="75" Count="0" />
       <LineId Id="27" Count="0" />
       <LineId Id="31" Count="0" />
       <LineId Id="24" Count="0" />
-      <LineId Id="28" Count="1" />
-      <LineId Id="39" Count="0" />
-      <LineId Id="30" Count="0" />
-      <LineId Id="50" Count="0" />
-      <LineId Id="49" Count="0" />
-      <LineId Id="51" Count="2" />
+      <LineId Id="28" Count="2" />
+      <LineId Id="50" Count="1" />
+      <LineId Id="53" Count="0" />
       <LineId Id="45" Count="0" />
       <LineId Id="47" Count="1" />
       <LineId Id="43" Count="0" />

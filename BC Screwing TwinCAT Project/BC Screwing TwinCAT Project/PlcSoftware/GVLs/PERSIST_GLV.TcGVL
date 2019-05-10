@@ -7,7 +7,7 @@
 	//Individual axis positions like fider position...
 	G_asIndividualAxisPositions:		ARRAY [1..CE_AXIS_C] OF tsAxisPositions;
 	//Min/Max/Offset parameters for drives...
-	G_asDriveParameters:				ARRAY [1..CE_AXIS_C] OF tsDriveParameter:= [(PositionMin:=-640.00,	PositionMax:=40.00,		PositionOffset:=-293.00),	(*X-Axis initial parameters*)
+	G_asDriveParameters:				ARRAY [1..CE_AXIS_C] OF tsDriveParameter:= [(PositionMin:=-40.00,	PositionMax:=640.00,		PositionOffset:=-293.00),	(*X-Axis initial parameters*)
 																					(PositionMin:=-193.00,	PositionMax:=530.00,	PositionOffset:=240.00),	(*Y-Axis initial parameters*)
 																					(PositionMin:=-3,		PositionMax:=252,		PositionOffset:=127.00), 	(*Z-Axis initial parameters*)
 																					(PositionMin:=0,		PositionMax:=0,			PositionOffset:=0.00)];		(*C-Axis initial parameters*)

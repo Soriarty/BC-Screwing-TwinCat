@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="SAFETY_OUT_GLV" Id="{4c5076ca-51ca-4e41-8517-776a9cb8cdf5}">
-    <Declaration><![CDATA[{attribute 'qualified_only'}
-VAR_GLOBAL
+    <Declaration><![CDATA[VAR_GLOBAL
+	Q_xTsFB_E_Stop					AT%Q*: BOOL;
+	Q_xTsEStopReset                 AT%Q*: BOOL;
+	Q_xTsTwinsafeRun				AT%Q*: BOOL;
+	Q_xTsErrAck						AT%Q*: BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

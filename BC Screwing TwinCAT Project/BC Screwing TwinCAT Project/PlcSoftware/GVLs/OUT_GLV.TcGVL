@@ -1,8 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="OUT_GLV" Id="{a96cf6d7-a66d-4586-8898-4065d6223070}">
-    <Declaration><![CDATA[{attribute 'qualified_only'}
-VAR_GLOBAL
+    <Declaration><![CDATA[VAR_GLOBAL
+	//Pneumatic valve outputs
+	Q_axScrewFeeders					AT%Q*:ARRAY [1..CE_SCREW_FEED_4] OF BOOL;
+	Q_axScrewFeeders_Alt				AT%Q*: ARRAY[1..CE_SCREW_FEED_4] OF BOOL;
+	
+	Q_xValve_PressureSwitch				AT%Q*: BOOL;	
+	Q_xValve_PressureSwitch_Alt			AT%Q*: BOOL;
+	
+	Q_xBlowValve						AT%Q*: BOOL;
+	Q_xVacuumValve						AT%Q*: BOOL;
+	
+	//Adapter Valve Island (CPX-FB37) - Module 1 (FB37-RIO [STI])
+	Q_nJigValveModule_01				AT%Q*: UINT;
+	//Adapter Valve Island (CPX-FB37) - Module 2 (MPA1S VMPA1-FB-EMS-8 [8DO])
+	Q_axJigValveModule_02				AT%Q*: ARRAY[1..8] OF BOOL;
+	//Adapter Valve Island (CPX-FB37) - Module 3 (MPA1S VMPA1-FB-EMS-8 [8DO])
+	Q_axJigValveModule_03				AT%Q*: ARRAY[1..8] OF BOOL;
+	//Adapter Valve Island (CPX-FB37) - Module 4 (MPA1S VMPA1-FB-EMS-8 [8DO])
+	Q_axJigValveModule_04				AT%Q*: ARRAY[1..8] OF BOOL;
+	//Elecktric outputs
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

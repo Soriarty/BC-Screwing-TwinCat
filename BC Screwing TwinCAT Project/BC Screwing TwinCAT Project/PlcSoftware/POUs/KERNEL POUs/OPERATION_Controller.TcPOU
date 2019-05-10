@@ -5,20 +5,29 @@
 VAR
 	xTrigger:				BOOL;
 	xDone:					BOOL;
-	rtDone:					R_TRIG;
-	fbBLOW_DOW_SEQ:			BLOW_DOW_SEQ;
+	rtControlOn:			R_TRIG;
+	fbHOME_RUN:				HOME_RUN_SEQ;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[rtDone(CLK:=xDone);
-IF rtDone.Q THEN xTrigger:=FALSE; END_IF
-fbBLOW_DOW_SEQ(	xExecute:=xTrigger,
-				xDone=>xDone);]]></ST>
+      <ST><![CDATA[rtControlOn(CLK:=G_xAutoMode);
+
+IF rtControlOn.Q AND G_xPowerOn AND NOT G_xErrorExist THEN
+	xTrigger:=TRUE;
+ELSE
+	xTrigger:=FALSE;
+END_IF
+
+fbHOME_RUN(	xExecute:=xTrigger, xDone:=xDone);]]></ST>
     </Implementation>
     <LineIds Name="OPERATION_Controller">
-      <LineId Id="46" Count="1" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="56" Count="1" />
+      <LineId Id="60" Count="1" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="62" Count="0" />
       <LineId Id="28" Count="0" />
-      <LineId Id="43" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

@@ -20,9 +20,6 @@
     <Compile Include="DUTs\teScrewFeeders.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\teSimAxisNames.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DUTs\teSlotNames.TcDUT">
       <SubType>Code</SubType>
     </Compile>

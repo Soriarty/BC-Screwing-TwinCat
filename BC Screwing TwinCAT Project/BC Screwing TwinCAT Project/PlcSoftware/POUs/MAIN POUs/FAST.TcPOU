@@ -3,12 +3,24 @@
   <POU Name="FAST" Id="{346f77cf-e7e3-4cc8-8cea-585644fa2845}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM FAST
 VAR
+	tpEStopAck:		TP;
+	rtErrorACK: 	R_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[
+Q_xTsTwinsafeRun := NOT I_xTsCommErr;
+Q_xTsErrAck := I_xTsCommErr;
+
+rtErrorAck(CLK:= G_xHMIErrorAck, Q=> G_xErrorAck);
+tpEStopAck(IN:= rtErrorAck.Q, pt:= T#100MS);
+
+Q_xTsFB_E_Stop :=I_xFeedbackES;
+Q_xTsEstopReset := (tpEStopAck.ET > T#100MS AND tpEStopAck.ET < T#300MS);]]></ST>
     </Implementation>
     <LineIds Name="FAST">
+      <LineId Id="33" Count="0" />
+      <LineId Id="26" Count="6" />
       <LineId Id="5" Count="0" />
     </LineIds>
   </POU>

@@ -1330,6 +1330,24 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
+			<Name GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..4] OF BOOL</Name>
+			<BitSize>32</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{0B37E936-53FE-6A1D-9723-D7016BFD8546}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..16] OF BOOL</Name>
+			<BitSize>128</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>16</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
 			<Name GUID="{36B04C3E-4400-43EE-A0C8-A34F4B0E9713}" Namespace="AST_V1_0" AutoDeleteType="true">tAST40Tx</Name>
 			<BitSize>144</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
@@ -1338,10 +1356,19 @@ External Setpoint Generation:
 				<Elements>18</Elements>
 			</ArrayInfo>
 		</DataType>
+		<DataType>
+			<Name GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..8] OF BOOL</Name>
+			<BitSize>64</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>8</Elements>
+			</ArrayInfo>
+		</DataType>
 	</DataTypes>
 	<Project ProjectGUID="{6D382B54-7EA2-43B5-AA8D-56A6FB4606DE}" Target64Bit="true" ShowHideConfigurations="#x306">
 		<System>
-			<Settings>
+			<Settings DontCheckTarget="192.168.56.1.1.1">
 				<IoIdleTask Priority="6"/>
 			</Settings>
 			<Tasks>
@@ -2283,8 +2310,8 @@ External Setpoint Generation:
 					</AxisPara>
 					<Encoder Name="Enc" EncType="1">
 						<EncPara>
-							<SoftEndMinControl Enable="true" Range="-640"/>
-							<SoftEndMaxControl Enable="true" Range="40"/>
+							<SoftEndMinControl Enable="true" Range="-40"/>
+							<SoftEndMaxControl Enable="true" Range="640"/>
 						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
@@ -3210,6 +3237,36 @@ External Setpoint Generation:
 					<Name>PlcSoftware Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
+						<Name>FastTask Inputs</Name>
+						<Var>
+							<Name>IN_GLV.I_xFeedbackES</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SAFETY_IN_GLV.I_xTsCommErr</Name>
+							<Type>BOOL</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2">
+						<Name>FastTask Outputs</Name>
+						<Var>
+							<Name>SAFETY_OUT_GLV.Q_xTsFB_E_Stop</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SAFETY_OUT_GLV.Q_xTsEStopReset</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SAFETY_OUT_GLV.Q_xTsTwinsafeRun</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SAFETY_OUT_GLV.Q_xTsErrAck</Name>
+							<Type>BOOL</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
 							<Name>AST40_GLV.G_sTx</Name>
@@ -3217,6 +3274,25 @@ External Setpoint Generation:
 								<![CDATA[ struct for the input mapping ]]>
 							</Comment>
 							<Type GUID="{8D8FE098-29F0-4B78-B3BA-F9D4FFD6C39F}" Namespace="AST_V1_0">tAST40Rx</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xVacuumIntake_OK</Name>
+							<Comment>
+								<![CDATA[ECM7	]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xStart</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xLightGridError</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xSafetyDoorClosed</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IN_OUT_GLV.G_aAxisReferencies[1].NcToPlc</Name>
@@ -3414,6 +3490,89 @@ External Setpoint Generation:
 								</Comment>
 							</SubVar>
 						</Var>
+						<Var>
+							<Name>IN_GLV.I_xServoFanDiag</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xPneumatic_OK</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xScrewFeed_READY</Name>
+							<Comment>
+								<![CDATA[INBOX_1]]>
+							</Comment>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xScrewFeeder1_pos</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xScrewFeeder2_pos</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xScrewFeeder3_pos</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xScrewFeeder4_pos</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xPartSensor1</Name>
+							<Comment>
+								<![CDATA[INBOX_2	]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xPartSensor2</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xAdapterEpBox01</Name>
+							<Comment>
+								<![CDATA[InputBox 03 (EP1809-21)]]>
+							</Comment>
+							<Type GUID="{0B37E936-53FE-6A1D-9723-D7016BFD8546}">ARRAY [1..16] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xAdapterEpBox02</Name>
+							<Comment>
+								<![CDATA[InputBox 04 (EP1809-21) temporary repleaced by EP1008-0001]]>
+							</Comment>
+							<Type GUID="{0B37E936-53FE-6A1D-9723-D7016BFD8546}">ARRAY [1..16] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_nAdapterValveModule_01</Name>
+							<Comment>
+								<![CDATA[Adapter Valve Island (CPX-FB37) - Module 1 (FB37-RIO [STI])]]>
+							</Comment>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>SAFETY_IN_GLV.I_xTsEstopCH1</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SAFETY_IN_GLV.I_xTsEstopCH2</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SAFETY_IN_GLV.I_xTsE_Stop</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SAFETY_IN_GLV.I_xTsLightGridOK</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SAFETY_IN_GLV.I_xTsFBErr</Name>
+							<Type>BOOL</Type>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
@@ -3439,6 +3598,61 @@ External Setpoint Generation:
 						<Var>
 							<Name>IN_OUT_GLV.G_aAxisReferencies[4].PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>OUT_GLV.Q_axScrewFeeders</Name>
+							<Comment>
+								<![CDATA[Pneumatic valve outputs]]>
+							</Comment>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>OUT_GLV.Q_axScrewFeeders_Alt</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>OUT_GLV.Q_xValve_PressureSwitch</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>OUT_GLV.Q_xValve_PressureSwitch_Alt</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>OUT_GLV.Q_xBlowValve</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>OUT_GLV.Q_xVacuumValve</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>OUT_GLV.Q_nJigValveModule_01</Name>
+							<Comment>
+								<![CDATA[Adapter Valve Island (CPX-FB37) - Module 1 (FB37-RIO [STI])]]>
+							</Comment>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>OUT_GLV.Q_axJigValveModule_02</Name>
+							<Comment>
+								<![CDATA[Adapter Valve Island (CPX-FB37) - Module 2 (MPA1S VMPA1-FB-EMS-8 [8DO])]]>
+							</Comment>
+							<Type GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}">ARRAY [1..8] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>OUT_GLV.Q_axJigValveModule_03</Name>
+							<Comment>
+								<![CDATA[Adapter Valve Island (CPX-FB37) - Module 3 (MPA1S VMPA1-FB-EMS-8 [8DO])]]>
+							</Comment>
+							<Type GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}">ARRAY [1..8] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>OUT_GLV.Q_axJigValveModule_04</Name>
+							<Comment>
+								<![CDATA[Adapter Valve Island (CPX-FB37) - Module 4 (MPA1S VMPA1-FB-EMS-8 [8DO])]]>
+							</Comment>
+							<Type GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}">ARRAY [1..8] OF BOOL</Type>
 						</Var>
 					</Vars>
 					<TaskPouOids>
