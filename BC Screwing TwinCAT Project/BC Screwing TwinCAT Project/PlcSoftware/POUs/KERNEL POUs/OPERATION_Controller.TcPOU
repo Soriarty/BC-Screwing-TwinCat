@@ -20,7 +20,9 @@ rtHomeRunDone(CLK:=xDone);
 IF rtControlOn.Q AND xHomeOK AND G_xPowerOn AND NOT G_xErrorExist THEN xHomeRunExecute:=TRUE; ELSE xHomeRunExecute:=FALSE; END_IF
 IF rtHomeRunDone.Q THEN xHomeOK:=TRUE; END_IF
 
-fbHOME_RUN(	xExecute:=xHomeRunExecute, xDone:=xDone);]]></ST>
+fbHOME_RUN(	xExecute:=xHomeRunExecute, xDone:=xDone);
+
+//Szeretem az almaspitet'''']]></ST>
     </Implementation>
     <LineIds Name="OPERATION_Controller">
       <LineId Id="55" Count="0" />
@@ -30,6 +32,8 @@ fbHOME_RUN(	xExecute:=xHomeRunExecute, xDone:=xDone);]]></ST>
       <LineId Id="62" Count="0" />
       <LineId Id="77" Count="0" />
       <LineId Id="28" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="89" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
