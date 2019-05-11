@@ -22,7 +22,8 @@ IF rtHomeRunDone.Q THEN xHomeOK:=TRUE; END_IF
 
 fbHOME_RUN(	xExecute:=xHomeRunExecute, xDone:=xDone);
 
-//Szeretem az almaspitet!!!]]></ST>
+//Szeretem az almaspitet!!!
+//Meg hogy minden jolegyen meg ezt is bele kell irni!]]></ST>
     </Implementation>
     <LineIds Name="OPERATION_Controller">
       <LineId Id="55" Count="0" />
@@ -34,6 +35,7 @@ fbHOME_RUN(	xExecute:=xHomeRunExecute, xDone:=xDone);
       <LineId Id="28" Count="0" />
       <LineId Id="90" Count="0" />
       <LineId Id="89" Count="0" />
+      <LineId Id="102" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
