@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="RefactoringLongReal" Id="{ae7cb5c4-f664-44e3-b234-78d022668a38}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK RefactoringLongReal
+VAR_INPUT
+	I_Percentage:				LREAL;
+	I_MaximumValue:					LREAL;
+END_VAR
+VAR_OUTPUT
+	Q_Result:					LREAL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Q_Result:=(I_Percentage*I_MaximumValue)/100;]]></ST>
+    </Implementation>
+    <LineIds Name="RefactoringLongReal">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
