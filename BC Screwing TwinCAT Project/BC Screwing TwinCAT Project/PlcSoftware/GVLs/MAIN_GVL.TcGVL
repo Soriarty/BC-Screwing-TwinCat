@@ -3,6 +3,7 @@
   <GVL Name="MAIN_GVL" Id="{8a90cd30-80b2-4b65-a07c-67fb08b99178}">
     <Declaration><![CDATA[VAR_GLOBAL
 	G_xAutoMode:					BOOL;
+	G_nOperationMode:				INT:=1;
 	
 	G_xErrorExist:					BOOL;  			
 	G_xErrorACK:					BOOL;
