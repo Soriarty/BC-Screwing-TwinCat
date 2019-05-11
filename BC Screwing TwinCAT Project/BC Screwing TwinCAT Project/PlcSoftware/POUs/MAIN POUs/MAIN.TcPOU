@@ -12,7 +12,8 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbGetHostName(	 
+      <ST><![CDATA[(*
+fbGetHostName(	 
 				 bExecute:= TRUE,
 				 sHostName=>sMachineName);
 sVisuURL:= CONCAT('--app=https://huszwsap10:1020/Default.html?TargetHost=', sMachineName);
@@ -23,7 +24,7 @@ fbStartProcess(
 				 COMNDLINE:= sVisuURL,
 				 START:= (LEN (sMachineName)>0),
 				 TMOUT:= T#20S);
-					 
+*)				 
 INIT_DataSet();
 RECIPE_Controller();
 DRIVE_Controller();
@@ -67,6 +68,7 @@ END_IF
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
+      <LineId Id="141" Count="0" />
       <LineId Id="118" Count="9" />
       <LineId Id="100" Count="0" />
       <LineId Id="131" Count="0" />
