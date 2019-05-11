@@ -22,7 +22,7 @@ IF rtHomeRunDone.Q THEN xHomeOK:=TRUE; END_IF
 
 fbHOME_RUN(	xExecute:=xHomeRunExecute, xDone:=xDone);
 
-//Szeretem az almaspitet'''']]></ST>
+//Szeretem az almaspitet!!!]]></ST>
     </Implementation>
     <LineIds Name="OPERATION_Controller">
       <LineId Id="55" Count="0" />
