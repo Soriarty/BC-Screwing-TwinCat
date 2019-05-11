@@ -2,31 +2,33 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="OPERATION_Controller" Id="{2c77ea48-d508-49bc-a424-4f74a9e55231}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM OPERATION_Controller
-VAR
-	xTrigger:				BOOL;
+VAR	
+	xHomeRunExecute:		BOOL;
 	xDone:					BOOL;
+	xHomeOK:				BOOL;
+	
 	rtControlOn:			R_TRIG;
+	rtHomeRunDone:			R_TRIG;
+	
 	fbHOME_RUN:				HOME_RUN_SEQ;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[rtControlOn(CLK:=G_xAutoMode);
+rtHomeRunDone(CLK:=xDone);
 
-IF rtControlOn.Q AND G_xPowerOn AND NOT G_xErrorExist THEN
-	xTrigger:=TRUE;
-ELSE
-	xTrigger:=FALSE;
-END_IF
+IF rtControlOn.Q AND xHomeOK AND G_xPowerOn AND NOT G_xErrorExist THEN xHomeRunExecute:=TRUE; ELSE xHomeRunExecute:=FALSE; END_IF
+IF rtHomeRunDone.Q THEN xHomeOK:=TRUE; END_IF
 
-fbHOME_RUN(	xExecute:=xTrigger, xDone:=xDone);]]></ST>
+fbHOME_RUN(	xExecute:=xHomeRunExecute, xDone:=xDone);]]></ST>
     </Implementation>
     <LineIds Name="OPERATION_Controller">
       <LineId Id="55" Count="0" />
       <LineId Id="59" Count="0" />
-      <LineId Id="56" Count="1" />
-      <LineId Id="60" Count="1" />
-      <LineId Id="58" Count="0" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="56" Count="0" />
       <LineId Id="62" Count="0" />
+      <LineId Id="77" Count="0" />
       <LineId Id="28" Count="0" />
     </LineIds>
   </POU>

@@ -2,12 +2,71 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="HMI_GLV" Id="{a928e4b6-8b64-4c92-bf20-994602f2ed71}">
     <Declaration><![CDATA[VAR_GLOBAL
+	G_xHMIAutoMod:				BOOL;
+	G_lrHMIOverride:			LREAL:= 0.1;
+	G_lrHMIContinousOverride:	LREAL;
+	G_lrHMIStepSize:			LREAL:=0.1;
+	G_xHMIControl: 				BOOL;
+	G_xHMILightON: 				BOOL;
+	
+	G_nHMIDepragStatus:			INT;
+	G_nHMIDepragStep:			DINT;
+	G_rHMIDepragTorque:			REAL;
+	G_nHMIDepragAngle:			REAL;
+	G_nHMIDepragProgramNR:		INT;
+	G_nHMIDepragCycleTime:		REAL;
+	
 	G_nHMIErrMessage:			INT;
 	G_xHMIErrorAck:				BOOL;
 	G_xHMILightGriDOK:			BOOL;
 	G_xHMIEStopOK:				BOOL;
 	G_xHMIBackDoor:				BOOL;
 	G_xHMIManualMovementMode:	BOOL;
+	
+	G_xHMIClearNotifi:			BOOL;
+	G_xHMIScapeReset:			BOOL;
+	
+	G_xHMIAxisCExist:			BOOL;
+	G_iHMIControlMode:			INT := 0; // 0=NormalAutoMode, 1=ScrewPicUpAutoMode, 2=
+	G_xHMITestStart:			BOOL;
+	G_iHMIScrewFeeder:			INT:=1;
+	G_iHMIDelayPosTest:			INT;
+	
+	G_xHMIScrewFeeder12Valve:		BOOL;
+	G_xHMIScrewFeeder34Valve:		BOOL;
+	G_xHMIAirBlowValve:				BOOL;
+	G_xHMIVacuumValve:				BOOL;
+
+	G_iHMIAutoSeqStep:			INT;
+	G_iHMIHomeSeqStep:			INT;
+	//---------------------------------
+	G_iHMIScrewPickUp_Loop:			INT;
+	G_iHMIScrewPickUp_OK:			INT;
+	G_iHMIScrewPickUp_NOK:			INT;
+	G_lrHMIScrewTol: 							LREAL	:= 4;
+	G_lrHMIScrewLength: 					ARRAY[1..4] OF LREAL := [50, 10, 50, 50];
+	
+	//---------------------------------
+	G_xHMIFeeder_1_Exist:			BOOL;
+	G_xHMIFeeder_2_Exist:			BOOL;
+	G_xHMIFeeder_3_Exist:			BOOL;
+	G_xHMIFeeder_4_Exist:			BOOL;
+	//---------------------------------
+	G_xHMIMoveAxisXplus:			BOOL;
+	G_xHMIMoveAxisXminus:			BOOL;
+	G_xHMIMoveAxisX_GoTo:			BOOL;
+	
+	G_xHMIMoveAxisYplus:			BOOL;
+	G_xHMIMoveAxisYminus:			BOOL;
+	G_xHMIMoveAxisY_GoTo:			BOOL;
+	
+	G_xHMIMoveAxisZplus:			BOOL;
+	G_xHMIMoveAxisZminus:			BOOL;
+	G_xHMIMoveAxisZ_GoTo:			BOOL;
+	
+	G_xHMIMoveAxisCplus:			BOOL;
+	G_xHMIMoveAxisCminus:			BOOL;
+	G_xHMIMoveAxisC_GoTo:			BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

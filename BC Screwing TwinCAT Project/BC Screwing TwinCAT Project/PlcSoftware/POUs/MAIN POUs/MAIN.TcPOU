@@ -4,10 +4,27 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	bInit:					BOOL:=TRUE;	
+	xOpenVisu:				BOOL;
+	sMachineName:			STRING;
+	sVisuURL:				STRING;
+	fbStartProcess:			NT_StartProcess;
+	fbGetHostName:			FB_GetHostName;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[INIT_DataSet();
+      <ST><![CDATA[fbGetHostName(	 
+				 bExecute:= TRUE,
+				 sHostName=>sMachineName);
+sVisuURL:= CONCAT('--app=https://huszwsap10:1020/Default.html?TargetHost=', sMachineName);
+fbStartProcess(
+				 NETID:= '',
+				 PATHSTR:= 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe',
+				 DIRNAME:= 'C:\Program Files (x86)\Google\Chrome\Application',
+				 COMNDLINE:= sVisuURL,
+				 START:= (LEN (sMachineName)>0),
+				 TMOUT:= T#20S);
+					 
+INIT_DataSet();
 RECIPE_Controller();
 DRIVE_Controller();
 OPERATION_Controller();
@@ -23,7 +40,7 @@ OPERATION_Controller();
 		#X:x.x - target coordinate, if null then no movement.
 *)
 IF bInit THEN
-	
+
 	RECIPE.SequenceArray:= __NEW(STRING, 12);	
 	
 	RECIPE.SequenceArray[0]:=	'#START:0012#END'; 			
@@ -50,6 +67,9 @@ END_IF
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
+      <LineId Id="118" Count="9" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="131" Count="0" />
       <LineId Id="17" Count="0" />
       <LineId Id="2" Count="0" />
       <LineId Id="7" Count="0" />
@@ -63,7 +83,7 @@ END_IF
       <LineId Id="63" Count="0" />
       <LineId Id="40" Count="0" />
       <LineId Id="25" Count="0" />
-      <LineId Id="75" Count="0" />
+      <LineId Id="102" Count="0" />
       <LineId Id="27" Count="0" />
       <LineId Id="77" Count="0" />
       <LineId Id="29" Count="0" />

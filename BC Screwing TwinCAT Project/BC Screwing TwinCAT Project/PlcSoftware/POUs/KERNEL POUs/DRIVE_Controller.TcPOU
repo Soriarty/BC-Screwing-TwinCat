@@ -4,7 +4,7 @@
     <Declaration><![CDATA[PROGRAM DRIVE_Controller
 VAR
 	eJogMode: 				E_JogMode;
-	fbAxisControls:			ARRAY [1..CE_AXIS_C] OF FB_AxisControl;
+	fbAxisControls:			ARRAY [1..CE_AXIS_C] OF FB_AXIS_CONTROL;
 	
 END_VAR
 ]]></Declaration>
@@ -66,7 +66,7 @@ C_Drive_ACT();]]></ST>
                           <v n="Extensible">false</v>
                         </o>
                         <o n="RValue" t="BoxTreeBox">
-                          <v n="BoxType">"FB_AxisControl"</v>
+                          <v n="BoxType">"FB_AXIS_CONTROL"</v>
                           <o n="Instance" t="Operand">
                             <v n="Operand">"fbAxisControls[CE_AXIS_C]"</v>
                             <v n="Type">"FB_AxisControl"</v>
@@ -483,7 +483,7 @@ C_Drive_ACT();]]></ST>
                           <v n="Extensible">false</v>
                         </o>
                         <o n="RValue" t="BoxTreeBox">
-                          <v n="BoxType">"FB_AxisControl"</v>
+                          <v n="BoxType">"FB_AXIS_CONTROL"</v>
                           <o n="Instance" t="Operand">
                             <v n="Operand">"fbAxisControls[CE_AXIS_X]"</v>
                             <v n="Type">"FB_AxisControl"</v>
@@ -900,7 +900,7 @@ C_Drive_ACT();]]></ST>
                           <v n="Extensible">false</v>
                         </o>
                         <o n="RValue" t="BoxTreeBox">
-                          <v n="BoxType">"FB_AxisControl"</v>
+                          <v n="BoxType">"FB_AXIS_CONTROL"</v>
                           <o n="Instance" t="Operand">
                             <v n="Operand">"fbAxisControls[CE_AXIS_Y]"</v>
                             <v n="Type">"FB_AxisControl"</v>
@@ -1317,7 +1317,7 @@ C_Drive_ACT();]]></ST>
                           <v n="Extensible">false</v>
                         </o>
                         <o n="RValue" t="BoxTreeBox">
-                          <v n="BoxType">"FB_AxisControl"</v>
+                          <v n="BoxType">"FB_AXIS_CONTROL"</v>
                           <o n="Instance" t="Operand">
                             <v n="Operand">"fbAxisControls[CE_AXIS_Z]"</v>
                             <v n="Type">"FB_AxisControl"</v>

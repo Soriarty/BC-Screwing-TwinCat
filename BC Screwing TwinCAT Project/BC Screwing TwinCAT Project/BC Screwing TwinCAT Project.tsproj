@@ -1368,7 +1368,7 @@ External Setpoint Generation:
 	</DataTypes>
 	<Project ProjectGUID="{6D382B54-7EA2-43B5-AA8D-56A6FB4606DE}" Target64Bit="true" ShowHideConfigurations="#x306">
 		<System>
-			<Settings DontCheckTarget="192.168.56.1.1.1">
+			<Settings>
 				<IoIdleTask Priority="6"/>
 			</Settings>
 			<Tasks>
@@ -3295,6 +3295,14 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>IN_GLV.I_xServoFanDiag</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_GLV.I_xPneumatic_OK</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>IN_OUT_GLV.G_aAxisReferencies[1].NcToPlc</Name>
 							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 							<SubVar>
@@ -3489,14 +3497,6 @@ External Setpoint Generation:
 ]]>
 								</Comment>
 							</SubVar>
-						</Var>
-						<Var>
-							<Name>IN_GLV.I_xServoFanDiag</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>IN_GLV.I_xPneumatic_OK</Name>
-							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IN_GLV.I_xScrewFeed_READY</Name>
