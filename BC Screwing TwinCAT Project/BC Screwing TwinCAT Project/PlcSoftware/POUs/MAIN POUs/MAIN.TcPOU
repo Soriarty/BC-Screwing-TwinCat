@@ -24,11 +24,13 @@ fbStartProcess(
 				 COMNDLINE:= sVisuURL,
 				 START:= (LEN (sMachineName)>0),
 				 TMOUT:= T#20S);
-*)				 
+*)		
+		 
 INIT_DataSet();
 RECIPE_Controller();
 DRIVE_Controller();
 OPERATION_Controller();
+HMI_Controller();
 
 (*
 		#START:xxxx - contains the length of the sequence 4 digit [0-9]
@@ -72,10 +74,12 @@ END_IF
       <LineId Id="118" Count="9" />
       <LineId Id="100" Count="0" />
       <LineId Id="131" Count="0" />
+      <LineId Id="151" Count="0" />
       <LineId Id="17" Count="0" />
       <LineId Id="2" Count="0" />
       <LineId Id="7" Count="0" />
       <LineId Id="78" Count="0" />
+      <LineId Id="161" Count="0" />
       <LineId Id="23" Count="0" />
       <LineId Id="22" Count="0" />
       <LineId Id="76" Count="0" />

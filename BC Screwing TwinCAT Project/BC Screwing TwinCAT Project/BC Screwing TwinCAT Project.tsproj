@@ -3232,7 +3232,7 @@ External Setpoint Generation:
 			</NC>
 		</Motion>
 		<Plc>
-			<Project GUID="{CCE8B62A-4DFE-4B0C-A796-DF2B582F106A}" Name="PlcSoftware" PrjFilePath="PlcSoftware\PlcSoftware.plcproj" TmcFilePath="PlcSoftware\PlcSoftware.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+			<Project GUID="{CCE8B62A-4DFE-4B0C-A796-DF2B582F106A}" Name="PlcSoftware" PrjFilePath="PlcSoftware\PlcSoftware.plcproj" TmcFilePath="PlcSoftware\PlcSoftware.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" CopyTmcToTarget="true" SymbolicMapping="true">
 				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PlcSoftware\PlcSoftware.tmc">
 					<Name>PlcSoftware Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>

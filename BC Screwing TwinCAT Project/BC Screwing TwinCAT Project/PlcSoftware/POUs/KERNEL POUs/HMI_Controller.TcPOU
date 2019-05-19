@@ -6,7 +6,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[G_xAutoMode:=G_xHMIAutoMod;]]></ST>
     </Implementation>
     <LineIds Name="HMI_Controller">
       <LineId Id="5" Count="0" />
