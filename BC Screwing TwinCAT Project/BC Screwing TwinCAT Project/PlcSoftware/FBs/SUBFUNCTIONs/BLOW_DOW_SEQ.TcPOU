@@ -1874,7 +1874,7 @@ xTransCondition:= NOT G_sAckAxisDone.X AND NOT G_sAckAxisDone.Y AND NOT G_sAckAx
     </Action>
     <Action Name="BLOW_DOWN_active" Id="{54c4b2b1-1a1f-48ef-ad85-4730ca13d443}" FolderPath="xActive\">
       <Implementation>
-        <ST><![CDATA[tpTimePulse(IN:=NOT tpTimePulse.Q, PT:=T#3000MS);
+        <ST><![CDATA[tpTimePulse(IN:=NOT tpTimePulse.Q, PT:=T#500MS);
 ftTimePulse(CLK:=tpTimePulse.Q);
 xTransCondition:= ftTimePulse.Q;]]></ST>
       </Implementation>
@@ -1887,7 +1887,7 @@ xTransCondition:=xDone;]]></ST>
     </Action>
     <Action Name="MOVE_Y_001_active" Id="{24cb28b6-d1a1-4ed1-8316-eea14b0be8e3}" FolderPath="xActive\">
       <Implementation>
-        <ST><![CDATA[G_sTargetPosition.Y:= G_asIndividualAxisPositions[CE_AXIS_Y].Positions[1].Target;
+        <ST><![CDATA[G_sControl.TargetPosition.Y:= G_asIndividualAxisPositions[CE_AXIS_Y].Positions[1].Target;
 G_sStartToPos.Y:= TRUE;
 
 xTransCondition:= G_sAxisDone.Y;]]></ST>
@@ -1895,7 +1895,7 @@ xTransCondition:= G_sAxisDone.Y;]]></ST>
     </Action>
     <Action Name="MOVE_Z_001_active" Id="{9744347d-9b2b-445a-9369-5c38b13c2f56}" FolderPath="xActive\">
       <Implementation>
-        <ST><![CDATA[G_sTargetPosition.Z:= G_asIndividualAxisPositions[CE_AXIS_Z].Positions[1].Target;
+        <ST><![CDATA[G_sControl.TargetPosition.Z:= G_asIndividualAxisPositions[CE_AXIS_Z].Positions[1].Target;
 G_sStartToPos.Z:= TRUE;
 
 xTransCondition:= G_sAxisDone.Z;]]></ST>
@@ -1903,7 +1903,7 @@ xTransCondition:= G_sAxisDone.Z;]]></ST>
     </Action>
     <Action Name="MOVE_Z_002_active" Id="{cc97c7bc-2bb3-495d-8a11-4743d6ee7c59}" FolderPath="xActive\">
       <Implementation>
-        <ST><![CDATA[G_sTargetPosition.Z:= G_asIndividualAxisPositions[CE_AXIS_Z].Positions[2].Target;
+        <ST><![CDATA[G_sControl.TargetPosition.Z:= G_asIndividualAxisPositions[CE_AXIS_Z].Positions[2].Target;
 G_sStartToPos.Z:= TRUE;
 
 xTransCondition:= G_sAxisDone.Z;]]></ST>
@@ -1911,7 +1911,7 @@ xTransCondition:= G_sAxisDone.Z;]]></ST>
     </Action>
     <Action Name="MOVE_Z_003_active" Id="{99f11d0d-a2bc-4119-909b-061f1fe4583a}" FolderPath="xActive\">
       <Implementation>
-        <ST><![CDATA[G_sTargetPosition.Z:= G_asIndividualAxisPositions[CE_AXIS_Z].Positions[1].Target;
+        <ST><![CDATA[G_sControl.TargetPosition.Z:= G_asIndividualAxisPositions[CE_AXIS_Z].Positions[1].Target;
 G_sStartToPos.Z:= TRUE;
 
 xTransCondition:= G_sAxisDone.Z;]]></ST>

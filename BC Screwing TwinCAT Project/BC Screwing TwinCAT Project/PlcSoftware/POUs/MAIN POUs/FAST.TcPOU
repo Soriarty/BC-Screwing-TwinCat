@@ -12,7 +12,7 @@ END_VAR
 Q_xTsTwinsafeRun := NOT I_xTsCommErr;
 Q_xTsErrAck := I_xTsCommErr;
 
-rtErrorAck(CLK:= G_xHMIErrorAck, Q=> G_xErrorAck);
+rtErrorAck(CLK:= G_sControl.ErrorAck, Q=> G_sControl.ErrorAck);
 tpEStopAck(IN:= rtErrorAck.Q, pt:= T#100MS);
 
 Q_xTsFB_E_Stop :=I_xFeedbackES;

@@ -14,10 +14,10 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[rtControlOn(CLK:=G_xAutoMode);
+      <ST><![CDATA[rtControlOn(CLK:=G_sControl.AutoMode);
 rtHomeRunDone(CLK:=xDone);
 
-IF rtControlOn.Q AND G_xPowerOn AND (NOT G_xErrorExist AND NOT xHomeOK) THEN 
+IF rtControlOn.Q AND G_sControl.PowerOn AND (NOT G_sControl.ErrorExist) THEN 
 	xHomeRunExecute:=TRUE; 
 END_IF
 

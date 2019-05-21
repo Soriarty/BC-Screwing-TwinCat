@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="tsASTData" Id="{4fd4f3ed-b776-4bd0-981e-b4dcc407b38b}">
+    <Declaration><![CDATA[TYPE tsASTData :
+STRUCT
+	Start:			BOOL;
+	Prog:			INT;
+	DataSaved:		BOOL;
+	
+	OK:				BOOL;
+	NOK:			BOOL;
+	Ready:			BOOL;
+	DataAvailable:	BOOL;
+	
+	Status:			INT;
+	Step:			DINT;
+	MinTorque:		REAL;
+	MaxTorque:		REAL;
+	Torque:			REAL;
+	MinAngle:		DINT;
+	MaxAngle:		DINT;
+	Angle:			REAL;
+	Started:		BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

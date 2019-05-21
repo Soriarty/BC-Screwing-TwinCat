@@ -4,33 +4,22 @@
     <Declaration><![CDATA[VAR_GLOBAL
 	I_xFeedbackES           		AT%I* :BOOL;
 
-//ECM7	
 	I_xVacuumIntake_OK				AT%I*: BOOL;
 	I_xStart						AT%I*: BOOL;
 	I_xLightGridError				AT%I*: BOOL;
 	I_xSafetyDoorClosed				AT%I*: BOOL;
 	I_xServoFanDiag					AT%I*: BOOL;
 	I_xPneumatic_OK					AT%I*: BOOL;
-	
-//INBOX_1
-	I_xScrewFeed_READY			 	AT%I*: ARRAY[1..4] OF BOOL;
-	I_xScrewFeeder1_pos				AT%I*: BOOL;
-	I_xScrewFeeder2_pos				AT%I*: BOOL;
-	I_xScrewFeeder3_pos				AT%I*: BOOL;
-	I_xScrewFeeder4_pos				AT%I*: BOOL;
 
-//INBOX_2	
+	I_xScrewFeed_READY			 	AT%I*: ARRAY[1..CE_SCREW_FEED_4] OF BOOL;
+	I_xScrewFeeder_POS				AT%I*: ARRAY[1..CE_SCREW_FEED_4] OF BOOL;
+	
 	I_xPartSensor1					AT%I*: BOOL;
 	I_xPartSensor2					AT%I*: BOOL;
+
+	I_xEpInputBox01				AT%I*: ARRAY[1..16] OF BOOL;	
+	I_xEpInputBox02				AT%I*: ARRAY[1..16] OF BOOL;
 	
-	//InputBox 03 (EP1809-21)
-	I_xAdapterEpBox01				AT%I*: ARRAY[1..16] OF BOOL;
-	
-	//InputBox 04 (EP1809-21) temporary repleaced by EP1008-0001
-	I_xAdapterEpBox02				AT%I*: ARRAY[1..16] OF BOOL;
-	
-	//Adapter Valve Island (CPX-FB37) - Module 1 (FB37-RIO [STI])
-	I_nAdapterValveModule_01		AT%I*: UINT;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

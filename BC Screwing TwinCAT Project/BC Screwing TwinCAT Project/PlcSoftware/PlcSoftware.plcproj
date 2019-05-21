@@ -20,13 +20,16 @@
     <Compile Include="DUTs\teScrewFeeders.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\teSlotNames.TcDUT">
+    <Compile Include="DUTs\tsASTData.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DUTs\tsAxisPositionPoint.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DUTs\tsAxisPositions.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\tsControls.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DUTs\tsCoordinate.TcDUT">
@@ -74,9 +77,6 @@
     <Compile Include="FBs\SUBFUNCTIONs\END_RUN_SEQ.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FBs\SUBFUNCTIONs\FEEDERS_HOME_SEQ.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="FBs\SUBFUNCTIONs\HOME_RUN_SEQ.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -90,11 +90,7 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="GVLs\COMM_GLV.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="GVLs\MAIN_GVL.TcGVL">
+    <Compile Include="GVLs\CTRL_GVL.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
@@ -115,10 +111,6 @@
       <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="GVLs\PERSIST_GLV.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="GVLs\RECIPE.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>

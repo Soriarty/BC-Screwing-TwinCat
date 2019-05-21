@@ -3,17 +3,54 @@
   <POU Name="SELECT_ACTIVE_FEEDER_SEQ" Id="{c85cf2b2-f7f2-4ead-a0b3-57d755304991}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK SELECT_ACTIVE_FEEDER_SEQ
 VAR_INPUT
+	I_iActiveFeeder:				INT;
+	I_axScrewFeederPosFeedback:		ARRAY [1..CE_SCREW_FEED_4] OF BOOL;
 END_VAR
 VAR_OUTPUT
+	Q_xDone:						BOOL;	
+	Q_axFeederValve:				ARRAY [1..CE_SCREW_FEED_4] OF BOOL;
 END_VAR
 VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[CASE I_iActiveFeeder OF
+	1:
+		Q_axFeederValve[1]:=TRUE;
+		Q_axFeederValve[2]:=FALSE;
+	2:
+		Q_axFeederValve[1]:=FALSE;
+		Q_axFeederValve[2]:=TRUE;
+	3:
+		Q_axFeederValve[3]:=TRUE;
+		Q_axFeederValve[4]:=FALSE;
+	4:
+		Q_axFeederValve[3]:=FALSE;
+		Q_axFeederValve[4]:=TRUE;
+END_CASE
+
+IF Q_axFeederValve[I_iActiveFeeder]=I_axScrewFeederPosFeedback[I_iActiveFeeder] THEN
+	Q_xDone:=TRUE;
+ELSE
+	Q_xDone:=FALSE;
+END_IF]]></ST>
     </Implementation>
     <LineIds Name="SELECT_ACTIVE_FEEDER_SEQ">
       <LineId Id="9" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="27" Count="1" />
+      <LineId Id="30" Count="1" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="32" Count="1" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="41" Count="1" />
+      <LineId Id="40" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

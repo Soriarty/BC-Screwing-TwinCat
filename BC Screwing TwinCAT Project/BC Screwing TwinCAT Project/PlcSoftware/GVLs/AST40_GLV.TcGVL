@@ -2,31 +2,13 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="AST40_GLV" Id="{d0ef1230-4182-4629-ac7e-d860219bd074}">
     <Declaration><![CDATA[VAR_GLOBAL
-	G_xAST40Start:			BOOL;
-	G_iAST40Prog:			INT;
-	G_xAST40DataSaved:		BOOL;
+	G_sAST40_Data:				tsASTData;					//Contains all of AST40 datas	
 	
-	G_xAST40OK:				BOOL;
-	G_xAST40NOK:			BOOL;
-	G_xAST40Ready:			BOOL;
-	G_xAST40DataAvailable:	BOOL;
+	G_fbAST40:				FB_AST40;					// FB instance of the AST40
+	G_sAST40:				tAST40;						// struct contains 'control', 'state' and 'data'
 	
-	G_iAST40Status:			INT;
-	G_diAST40Step:			DINT;
-	G_rAST40MinTorque:		REAL;
-	G_rAST40MaxTorque:		REAL;
-	G_rAST40Torque:			REAL;
-	G_diAST40MinAngle:		DINT;
-	G_diAST40MaxAngle:		DINT;
-	G_rAST40Angle:			REAL;
-	G_xAST40Started:		BOOL;
-	
-	
-	G_fbAST40:					FB_AST40;				// FB instance of the AST40
-	G_sAST40:					tAST40;					// struct contains 'control', 'state' and 'data'
-	
-	G_sTx				AT%I*: tAST40Rx; 			// struct for the input mapping 
-	G_sRx 				AT%Q*: tAST40Tx; 			// struct for the output mapping
+	G_sTx					AT%I*: tAST40Rx; 			// struct for the input mapping 
+	G_sRx 					AT%Q*: tAST40Tx; 			// struct for the output mapping
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

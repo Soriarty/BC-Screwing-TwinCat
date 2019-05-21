@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="tsControls" Id="{9ab926b0-8265-4652-9e30-56892498b14a}">
+    <Declaration><![CDATA[TYPE tsControls :
+STRUCT
+	PowerOn:					BOOL:=TRUE;
+	AutoMode:					BOOL:=0;						//Automaic/Manual mode switch
+	ErrorExist:					BOOL;  							//Error exist
+	ErrorACK:					BOOL;							//Error acknowledge
+	ManualMoveMode:				BOOL:=TRUE;						//0:= stepper, 1:= continous
+	
+	OperationMode:				INT:=1;							//0:= manual, 1:= automatic seq 01 ... 
+
+	Override:					LREAL:=100;						//Main overrride value
+	ManualOverride:				LREAL:=20;						//Maximum manual override value
+	StepSize:					LREAL:=0.1;						//Manual jog step size
+	MaximumVelocity:			LREAL:=600;						//Maximum velocity
+	
+	ActualPosition:				tsCoordinate;	
+	TargetPosition:				tsCoordinate;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

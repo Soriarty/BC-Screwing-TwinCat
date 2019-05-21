@@ -1718,7 +1718,7 @@ xTransCondition:=xDone;]]></ST>
     </Action>
     <Action Name="MOVE_C_001_active" Id="{5b08fe0d-dc14-4350-bd8b-d7ab183cf320}" FolderPath="xActive\">
       <Implementation>
-        <ST><![CDATA[G_sTargetPosition.C:= G_asIndividualAxisPositions[CE_AXIS_C].Positions[1].Target;
+        <ST><![CDATA[G_sControl.TargetPosition.C:= G_asIndividualAxisPositions[CE_AXIS_C].Positions[1].Target;
 G_sStartToPos.C:= TRUE;
 
 xTransCondition:= G_sAxisDone.C;]]></ST>
@@ -1726,7 +1726,7 @@ xTransCondition:= G_sAxisDone.C;]]></ST>
     </Action>
     <Action Name="MOVE_X_001_active" Id="{4ab2ff91-bc6d-4f66-858e-07bd1ea2a80f}" FolderPath="xActive\">
       <Implementation>
-        <ST><![CDATA[G_sTargetPosition.X:= G_asIndividualAxisPositions[CE_AXIS_X].Positions[1].Target;
+        <ST><![CDATA[G_sControl.TargetPosition.X:= G_asIndividualAxisPositions[CE_AXIS_X].Positions[1].Target;
 G_sStartToPos.X:= TRUE;
 
 xTransCondition:= G_sAxisDone.X;]]></ST>
@@ -1734,7 +1734,7 @@ xTransCondition:= G_sAxisDone.X;]]></ST>
     </Action>
     <Action Name="MOVE_Z_001_active" Id="{4838b9db-7888-4241-bfcb-76e00c0a82e1}" FolderPath="xActive\">
       <Implementation>
-        <ST><![CDATA[G_sTargetPosition.Z:= G_asIndividualAxisPositions[CE_AXIS_Z].Positions[1].Target;
+        <ST><![CDATA[G_sControl.TargetPosition.Z:= G_asIndividualAxisPositions[CE_AXIS_Z].Positions[1].Target;
 G_sStartToPos.Z:= TRUE;
 
 xTransCondition:= G_sAxisDone.Z;]]></ST>

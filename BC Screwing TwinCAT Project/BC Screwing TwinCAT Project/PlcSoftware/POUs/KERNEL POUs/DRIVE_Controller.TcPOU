@@ -9,7 +9,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF (G_xManualMoveMode) THEN
+      <ST><![CDATA[IF (G_sControl.ManualMoveMode) THEN
 	eJogMode:= MC_JOGMODE_CONTINOUS;
 ELSE
 	eJogMode:= MC_JOGMODE_INCHING;
@@ -69,7 +69,7 @@ C_Drive_ACT();]]></ST>
                           <v n="BoxType">"FB_AXIS_CONTROL"</v>
                           <o n="Instance" t="Operand">
                             <v n="Operand">"fbAxisControls[CE_AXIS_C]"</v>
-                            <v n="Type">"FB_AxisControl"</v>
+                            <v n="Type">"FB_AXIS_CONTROL"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
                             <v n="Address">""</v>
@@ -87,7 +87,7 @@ C_Drive_ACT();]]></ST>
                             <l2 n="OutputItems" cet="Operand">
                               <n />
                               <o>
-                                <v n="Operand">"G_sActualPosition.C"</v>
+                                <v n="Operand">"G_sControl.ActualPosition.C"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -148,7 +148,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sAxisJogForward.C"</v>
+                                <v n="Operand">"G_sHMIAxisJogForward.C"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -167,7 +167,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sAxisJogBackward.C"</v>
+                                <v n="Operand">"G_sHMIAxisJogBackward.C"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -205,7 +205,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sTargetPosition.C"</v>
+                                <v n="Operand">"G_sControl.TargetPosition.C"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -243,7 +243,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_xPowerOn"</v>
+                                <v n="Operand">"G_sControl.PowerOn"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -281,7 +281,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrStepSize"</v>
+                                <v n="Operand">"G_sControl.StepSize"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -300,7 +300,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrOverride"</v>
+                                <v n="Operand">"G_sControl.Override"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -319,7 +319,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrManualOverride"</v>
+                                <v n="Operand">"G_sControl.ManualOverride"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -338,7 +338,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrMaximumVelocity"</v>
+                                <v n="Operand">"G_sControl.MaximumVelocity"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -486,7 +486,7 @@ C_Drive_ACT();]]></ST>
                           <v n="BoxType">"FB_AXIS_CONTROL"</v>
                           <o n="Instance" t="Operand">
                             <v n="Operand">"fbAxisControls[CE_AXIS_X]"</v>
-                            <v n="Type">"FB_AxisControl"</v>
+                            <v n="Type">"FB_AXIS_CONTROL"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
                             <v n="Address">""</v>
@@ -504,7 +504,7 @@ C_Drive_ACT();]]></ST>
                             <l2 n="OutputItems" cet="Operand">
                               <n />
                               <o>
-                                <v n="Operand">"G_sActualPosition.X"</v>
+                                <v n="Operand">"G_sControl.ActualPosition.X"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -565,7 +565,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sAxisJogForward.X"</v>
+                                <v n="Operand">"G_sHMIAxisJogForward.X"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -584,7 +584,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sAxisJogBackward.X"</v>
+                                <v n="Operand">"G_sHMIAxisJogBackward.X"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -622,7 +622,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sTargetPosition.X"</v>
+                                <v n="Operand">"G_sControl.TargetPosition.X"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -660,7 +660,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_xPowerOn"</v>
+                                <v n="Operand">"G_sControl.PowerOn"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -698,7 +698,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrStepSize"</v>
+                                <v n="Operand">"G_sControl.StepSize"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -717,7 +717,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrOverride"</v>
+                                <v n="Operand">"G_sControl.Override"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -736,7 +736,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrManualOverride"</v>
+                                <v n="Operand">"G_sControl.ManualOverride"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -755,7 +755,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrMaximumVelocity"</v>
+                                <v n="Operand">"G_sControl.MaximumVelocity"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -903,7 +903,7 @@ C_Drive_ACT();]]></ST>
                           <v n="BoxType">"FB_AXIS_CONTROL"</v>
                           <o n="Instance" t="Operand">
                             <v n="Operand">"fbAxisControls[CE_AXIS_Y]"</v>
-                            <v n="Type">"FB_AxisControl"</v>
+                            <v n="Type">"FB_AXIS_CONTROL"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
                             <v n="Address">""</v>
@@ -921,7 +921,7 @@ C_Drive_ACT();]]></ST>
                             <l2 n="OutputItems" cet="Operand">
                               <n />
                               <o>
-                                <v n="Operand">"G_sActualPosition.Y"</v>
+                                <v n="Operand">"G_sControl.ActualPosition.Y"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -982,7 +982,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sAxisJogForward.Y"</v>
+                                <v n="Operand">"G_sHMIAxisJogForward.Y"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1001,7 +1001,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sAxisJogBackward.Y"</v>
+                                <v n="Operand">"G_sHMIAxisJogBackward.Y"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1039,7 +1039,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sTargetPosition.Y"</v>
+                                <v n="Operand">"G_sControl.TargetPosition.Y"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1077,7 +1077,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_xPowerOn"</v>
+                                <v n="Operand">"G_sControl.PowerOn"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1115,7 +1115,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrStepSize"</v>
+                                <v n="Operand">"G_sControl.StepSize"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1134,7 +1134,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrOverride"</v>
+                                <v n="Operand">"G_sControl.Override"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1153,7 +1153,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrManualOverride"</v>
+                                <v n="Operand">"G_sControl.ManualOverride"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1172,7 +1172,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrMaximumVelocity"</v>
+                                <v n="Operand">"G_sControl.MaximumVelocity"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1320,7 +1320,7 @@ C_Drive_ACT();]]></ST>
                           <v n="BoxType">"FB_AXIS_CONTROL"</v>
                           <o n="Instance" t="Operand">
                             <v n="Operand">"fbAxisControls[CE_AXIS_Z]"</v>
-                            <v n="Type">"FB_AxisControl"</v>
+                            <v n="Type">"FB_AXIS_CONTROL"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
                             <v n="Address">""</v>
@@ -1338,7 +1338,7 @@ C_Drive_ACT();]]></ST>
                             <l2 n="OutputItems" cet="Operand">
                               <n />
                               <o>
-                                <v n="Operand">"G_sActualPosition.Z"</v>
+                                <v n="Operand">"G_sControl.ActualPosition.Z"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1399,7 +1399,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sAxisJogForward.Z"</v>
+                                <v n="Operand">"G_sHMIAxisJogForward.Z"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1418,7 +1418,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sAxisJogBackward.Z"</v>
+                                <v n="Operand">"G_sHMIAxisJogBackward.Z"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1456,7 +1456,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_sTargetPosition.Z"</v>
+                                <v n="Operand">"G_sControl.TargetPosition.Z"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1494,7 +1494,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_xPowerOn"</v>
+                                <v n="Operand">"G_sControl.PowerOn"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1532,7 +1532,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrStepSize"</v>
+                                <v n="Operand">"G_sControl.StepSize"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1551,7 +1551,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrOverride"</v>
+                                <v n="Operand">"G_sControl.Override"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1570,7 +1570,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrManualOverride"</v>
+                                <v n="Operand">"G_sControl.ManualOverride"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1589,7 +1589,7 @@ C_Drive_ACT();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"G_lrMaximumVelocity"</v>
+                                <v n="Operand">"G_sControl.MaximumVelocity"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
