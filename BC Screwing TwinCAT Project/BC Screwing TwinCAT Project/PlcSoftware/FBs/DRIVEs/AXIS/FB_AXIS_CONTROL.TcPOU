@@ -65,11 +65,7 @@ fbRefactor(	I_Percentage:= IManualOverride,
 (*SoEReset execution on errors or if axis is not ready*)
 xSoeExecute:= MCPower.Error OR MCMoveAbs_02.Error OR MCMoveAbs_01.Error OR MCJog.Error OR MCHalt.Error OR NOT QAxisReady;
 
-IF MCPower.Error THEN ErrorID:=MCPower.ErrorID; END_IF;
-IF MCMoveAbs_02.Error THEN ErrorID:=MCMoveAbs_02.ErrorID; END_IF;
-IF MCMoveAbs_01.Error THEN ErrorID:=MCMoveAbs_01.ErrorID; END_IF;
-IF MCJog.Error THEN ErrorID:=MCJog.ErrorID; END_IF;
-IF MCHalt.Error THEN ErrorID:=MCHalt.ErrorID; END_IF;
+
 
 (*T#300MS delay on PowerON*)
 toPowerOn(IN:= IPowerOn, PT:= T#300MS);
@@ -1609,10 +1605,8 @@ MC_MOVE_ACT();
       <LineId Id="64" Count="0" />
       <LineId Id="57" Count="0" />
       <LineId Id="47" Count="0" />
-      <LineId Id="274" Count="0" />
-      <LineId Id="69" Count="0" />
-      <LineId Id="273" Count="0" />
-      <LineId Id="275" Count="3" />
+      <LineId Id="322" Count="0" />
+      <LineId Id="277" Count="1" />
       <LineId Id="45" Count="0" />
       <LineId Id="48" Count="0" />
       <LineId Id="70" Count="0" />

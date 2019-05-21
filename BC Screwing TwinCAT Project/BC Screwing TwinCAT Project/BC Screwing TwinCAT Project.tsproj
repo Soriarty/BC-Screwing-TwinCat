@@ -1321,6 +1321,15 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 		<DataType>
+			<Name GUID="{8D8FE098-29F0-4B78-B3BA-F9D4FFD6C39F}" Namespace="AST_V1_0" AutoDeleteType="true">tAST40Rx</Name>
+			<BitSize>1360</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>170</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
 			<Name GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..4] OF BOOL</Name>
 			<BitSize>32</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
@@ -1339,24 +1348,6 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{8D8FE098-29F0-4B78-B3BA-F9D4FFD6C39F}" Namespace="AST_V1_0" AutoDeleteType="true">tAST40Rx</Name>
-			<BitSize>1360</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>170</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
-			<Name GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..8] OF BOOL</Name>
-			<BitSize>64</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
-			<ArrayInfo>
-				<LBound>1</LBound>
-				<Elements>8</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
 			<Name GUID="{36B04C3E-4400-43EE-A0C8-A34F4B0E9713}" Namespace="AST_V1_0" AutoDeleteType="true">tAST40Tx</Name>
 			<BitSize>144</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
@@ -1368,21 +1359,26 @@ External Setpoint Generation:
 	</DataTypes>
 	<Project ProjectGUID="{6D382B54-7EA2-43B5-AA8D-56A6FB4606DE}" Target64Bit="true" ShowHideConfigurations="#x306">
 		<System>
-			<Settings>
-				<IoIdleTask Priority="6"/>
+			<Settings MaxCpus="40" Packages="2">
+				<Cpu/>
+				<Cpu CpuId="1"/>
+				<Cpu CpuId="2"/>
+				<Cpu CpuId="3"/>
+				<Cpu CpuId="4"/>
+				<IoIdleTask Priority="6" Affinity="#x00000002"/>
 			</Settings>
 			<Tasks>
-				<Task Id="3" Priority="12" CycleTime="100000" AmsPort="350" AdtTasks="true">
+				<Task Id="3" Priority="12" CycleTime="100000" AmsPort="350" Affinity="#x00000008" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
-				<Task Id="6" Priority="8" CycleTime="100000" AmsPort="351" AdtTasks="true">
+				<Task Id="6" Priority="8" CycleTime="100000" AmsPort="351" Affinity="#x00000004" AdtTasks="true">
 					<Name>FastTask</Name>
 				</Task>
 			</Tasks>
 		</System>
 		<Motion>
 			<NC>
-				<SafTask Priority="4" CycleTime="20000" AmsPort="501" IoAtBegin="true">
+				<SafTask Priority="4" CycleTime="20000" AmsPort="501" Affinity="#x00000001" IoAtBegin="true">
 					<Name>NC/PTP Task SAF</Name>
 					<Vars VarGrpType="1" InsertType="1">
 						<Name>Inputs</Name>
@@ -1394,7 +1390,7 @@ External Setpoint Generation:
 						<Name>Image</Name>
 					</Image>
 				</SafTask>
-				<SvbTask Priority="10" CycleTime="100000" AmsPort="511">
+				<SvbTask Priority="10" CycleTime="100000" AmsPort="511" Affinity="#x00000001">
 					<Name>NC/PTP Task SVB</Name>
 				</SvbTask>
 				<AxisFolder Name="Real"/>
@@ -3239,7 +3235,10 @@ External Setpoint Generation:
 					<Vars VarGrpType="1">
 						<Name>FastTask Inputs</Name>
 						<Var>
-							<Name>IN_GLV.I_xFeedbackES</Name>
+							<Name>IN_OUT_GLV.I_xFeedbackES</Name>
+							<Comment>
+								<![CDATA[Input linkable definition]]>
+							</Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -3269,50 +3268,31 @@ External Setpoint Generation:
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
-							<Name>IN_GLV.I_xVacuumIntake_OK</Name>
+							<Name>IN_OUT_GLV.I_xVacuumIntake_OK</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>AST40_GLV.G_sTx</Name>
 							<Comment>
-								<![CDATA[ECM7	]]>
+								<![CDATA[ struct for the input mapping ]]>
 							</Comment>
+							<Type GUID="{8D8FE098-29F0-4B78-B3BA-F9D4FFD6C39F}" Namespace="AST_V1_0">tAST40Rx</Type>
+						</Var>
+						<Var>
+							<Name>IN_OUT_GLV.I_xStart</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>IN_GLV.I_xStart</Name>
+							<Name>IN_OUT_GLV.I_xLightGridError</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>IN_GLV.I_xLightGridError</Name>
+							<Name>IN_OUT_GLV.I_xSafetyDoorClosed</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>IN_GLV.I_xSafetyDoorClosed</Name>
+							<Name>IN_OUT_GLV.I_xServoFanDiag</Name>
 							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>IN_GLV.I_xServoFanDiag</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>IN_GLV.I_xPneumatic_OK</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>IN_GLV.I_xScrewFeeder1_pos</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>IN_GLV.I_xScrewFeeder2_pos</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>IN_GLV.I_xScrewFeeder3_pos</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>IN_GLV.I_xScrewFeed_READY</Name>
-							<Comment>
-								<![CDATA[INBOX_1]]>
-							</Comment>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IN_OUT_GLV.G_aAxisReferencies[1].NcToPlc</Name>
@@ -3511,40 +3491,32 @@ External Setpoint Generation:
 							</SubVar>
 						</Var>
 						<Var>
-							<Name>IN_GLV.I_xScrewFeeder4_pos</Name>
+							<Name>IN_OUT_GLV.I_xPneumatic_OK</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>IN_GLV.I_xPartSensor1</Name>
-							<Comment>
-								<![CDATA[INBOX_2	]]>
-							</Comment>
+							<Name>IN_OUT_GLV.I_xScrewFeed_READY</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_OUT_GLV.I_xScrewFeeder_POS</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IN_OUT_GLV.I_xPartSensor1</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>IN_GLV.I_xPartSensor2</Name>
+							<Name>IN_OUT_GLV.I_xPartSensor2</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>IN_GLV.I_xAdapterEpBox01</Name>
-							<Comment>
-								<![CDATA[InputBox 03 (EP1809-21)]]>
-							</Comment>
+							<Name>IN_OUT_GLV.I_xEpInputBox01</Name>
 							<Type GUID="{0B37E936-53FE-6A1D-9723-D7016BFD8546}">ARRAY [1..16] OF BOOL</Type>
 						</Var>
 						<Var>
-							<Name>IN_GLV.I_xAdapterEpBox02</Name>
-							<Comment>
-								<![CDATA[InputBox 04 (EP1809-21) temporary repleaced by EP1008-0001]]>
-							</Comment>
+							<Name>IN_OUT_GLV.I_xEpInputBox02</Name>
 							<Type GUID="{0B37E936-53FE-6A1D-9723-D7016BFD8546}">ARRAY [1..16] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>IN_GLV.I_nAdapterValveModule_01</Name>
-							<Comment>
-								<![CDATA[Adapter Valve Island (CPX-FB37) - Module 1 (FB37-RIO [STI])]]>
-							</Comment>
-							<Type>UINT</Type>
 						</Var>
 						<Var>
 							<Name>SAFETY_IN_GLV.I_xTsEstopCH1</Name>
@@ -3566,16 +3538,16 @@ External Setpoint Generation:
 							<Name>SAFETY_IN_GLV.I_xTsFBErr</Name>
 							<Type>BOOL</Type>
 						</Var>
-						<Var>
-							<Name>AST40_GLV.G_sTx</Name>
-							<Comment>
-								<![CDATA[ struct for the input mapping ]]>
-							</Comment>
-							<Type GUID="{8D8FE098-29F0-4B78-B3BA-F9D4FFD6C39F}" Namespace="AST_V1_0">tAST40Rx</Type>
-						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>AST40_GLV.G_sRx</Name>
+							<Comment>
+								<![CDATA[ struct for the output mapping]]>
+							</Comment>
+							<Type GUID="{36B04C3E-4400-43EE-A0C8-A34F4B0E9713}" Namespace="AST_V1_0">tAST40Tx</Type>
+						</Var>
 						<Var>
 							<Name>IN_OUT_GLV.G_aAxisReferencies[1].PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
@@ -3593,66 +3565,23 @@ External Setpoint Generation:
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 						</Var>
 						<Var>
-							<Name>OUT_GLV.Q_xValve_PressureSwitch</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>OUT_GLV.Q_axScrewFeeders</Name>
+							<Name>IN_OUT_GLV.Q_axScrewFeeders</Name>
 							<Comment>
-								<![CDATA[Pneumatic valve outputs]]>
+								<![CDATA[Output linkable definition]]>
 							</Comment>
 							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
 						</Var>
 						<Var>
-							<Name>OUT_GLV.Q_axScrewFeeders_Alt</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>OUT_GLV.Q_xValve_PressureSwitch_Alt</Name>
+							<Name>IN_OUT_GLV.Q_xValve_PressureSwitch</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>OUT_GLV.Q_xBlowValve</Name>
+							<Name>IN_OUT_GLV.Q_xBlowValve</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>OUT_GLV.Q_xVacuumValve</Name>
+							<Name>IN_OUT_GLV.Q_xVacuumValve</Name>
 							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>OUT_GLV.Q_nJigValveModule_01</Name>
-							<Comment>
-								<![CDATA[Adapter Valve Island (CPX-FB37) - Module 1 (FB37-RIO [STI])]]>
-							</Comment>
-							<Type>UINT</Type>
-						</Var>
-						<Var>
-							<Name>OUT_GLV.Q_axJigValveModule_02</Name>
-							<Comment>
-								<![CDATA[Adapter Valve Island (CPX-FB37) - Module 2 (MPA1S VMPA1-FB-EMS-8 [8DO])]]>
-							</Comment>
-							<Type GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}">ARRAY [1..8] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>OUT_GLV.Q_axJigValveModule_03</Name>
-							<Comment>
-								<![CDATA[Adapter Valve Island (CPX-FB37) - Module 3 (MPA1S VMPA1-FB-EMS-8 [8DO])]]>
-							</Comment>
-							<Type GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}">ARRAY [1..8] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>OUT_GLV.Q_axJigValveModule_04</Name>
-							<Comment>
-								<![CDATA[Adapter Valve Island (CPX-FB37) - Module 4 (MPA1S VMPA1-FB-EMS-8 [8DO])]]>
-							</Comment>
-							<Type GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}">ARRAY [1..8] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>AST40_GLV.G_sRx</Name>
-							<Comment>
-								<![CDATA[ struct for the output mapping]]>
-							</Comment>
-							<Type GUID="{36B04C3E-4400-43EE-A0C8-A34F4B0E9713}" Namespace="AST_V1_0">tAST40Tx</Type>
 						</Var>
 					</Vars>
 					<TaskPouOids>
@@ -3661,6 +3590,7 @@ External Setpoint Generation:
 					</TaskPouOids>
 				</Instance>
 			</Project>
+			<PlcAuxTask Affinity="#x00000010"/>
 		</Plc>
 		<Io/>
 	</Project>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="teDriveState" Id="{1fe6071b-3b50-407f-8457-c6aa63779a04}">
+    <Declaration><![CDATA[TYPE teDriveState :
+(
+	MOVESTATE_INIT,
+	MOVESTATE_ENABLE,
+	MOVESTATE_AUTO,
+	MOVESTATE_MANUAL,
+	MOVESTATE_IDLE,
+	MOVESTATE_ERROR,
+	MOVESTATE_RESET
+) UDINT;
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

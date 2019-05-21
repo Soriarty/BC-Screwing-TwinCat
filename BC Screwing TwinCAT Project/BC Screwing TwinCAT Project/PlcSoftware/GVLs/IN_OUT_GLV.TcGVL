@@ -2,7 +2,29 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="IN_OUT_GLV" Id="{0f7a0c5a-ad72-4885-aeba-80dc9f462005}">
     <Declaration><![CDATA[VAR_GLOBAL
+	//Axis referencies for driving
 	G_aAxisReferencies:				ARRAY [1..CE_AXIS_C] OF AXIS_REF;
+	
+	//Input linkable definition
+	I_xFeedbackES           		AT%I* :BOOL;
+	I_xVacuumIntake_OK				AT%I*: BOOL;
+	I_xStart						AT%I*: BOOL;
+	I_xLightGridError				AT%I*: BOOL;
+	I_xSafetyDoorClosed				AT%I*: BOOL;
+	I_xServoFanDiag					AT%I*: BOOL;
+	I_xPneumatic_OK					AT%I*: BOOL;
+	I_xScrewFeed_READY			 	AT%I*: ARRAY[1..CE_SCREW_FEED_4] OF BOOL;
+	I_xScrewFeeder_POS				AT%I*: ARRAY[1..CE_SCREW_FEED_4] OF BOOL;
+	I_xPartSensor1					AT%I*: BOOL;
+	I_xPartSensor2					AT%I*: BOOL;
+	I_xEpInputBox01					AT%I*: ARRAY[1..16] OF BOOL;	
+	I_xEpInputBox02					AT%I*: ARRAY[1..16] OF BOOL;
+	
+	//Output linkable definition
+	Q_axScrewFeeders					AT%Q*:ARRAY [1..CE_SCREW_FEED_4] OF BOOL;
+	Q_xValve_PressureSwitch				AT%Q*: BOOL;
+	Q_xBlowValve						AT%Q*: BOOL;
+	Q_xVacuumValve						AT%Q*: BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

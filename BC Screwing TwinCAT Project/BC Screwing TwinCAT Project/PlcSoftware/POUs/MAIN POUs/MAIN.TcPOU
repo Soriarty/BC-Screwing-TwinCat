@@ -27,10 +27,11 @@ fbStartProcess(
 *)		
 		 
 INIT_DataSet();
-RECIPE_Controller();
-DRIVE_Controller();
-OPERATION_Controller();
-HMI_Controller();
+//RECIPE_Controller();
+//DRIVE_Controller();
+//MOVMENT_Controller();
+//OPERATION_Controller();
+//HMI_Controller();
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
@@ -42,6 +43,7 @@ HMI_Controller();
       <LineId Id="17" Count="0" />
       <LineId Id="2" Count="0" />
       <LineId Id="7" Count="0" />
+      <LineId Id="171" Count="0" />
       <LineId Id="78" Count="0" />
       <LineId Id="161" Count="0" />
       <LineId Id="12" Count="0" />

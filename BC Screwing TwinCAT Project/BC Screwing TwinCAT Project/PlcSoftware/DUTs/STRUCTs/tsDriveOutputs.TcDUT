@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="tsDriveOutputs" Id="{061b08f3-ab2e-4e55-b70f-40bdfdc4f86f}">
+    <Declaration><![CDATA[TYPE tsDriveOutputs :
+STRUCT
+	PowerOut: 			ST_McOutputs;
+	ResetOut: 				ST_McOutputs;
+	MoveAbsoluteOut: 		ST_McOutputs;
+	MoveJogOut:				ST_McOutputs;
+	MoveHalt:				ST_McOutputs;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

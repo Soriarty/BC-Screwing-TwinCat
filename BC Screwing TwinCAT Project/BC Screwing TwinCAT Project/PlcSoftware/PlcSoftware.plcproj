@@ -14,40 +14,49 @@
     <LibraryReferences>{92d50e1e-ff9f-4ab1-a89a-ebddd31fdf44}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DUTs\teAxisNames.TcDUT">
+    <Compile Include="DUTs\ENUMs\teAxisNames.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\teScrewFeeders.TcDUT">
+    <Compile Include="DUTs\ENUMs\teDriveState.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\tsASTData.TcDUT">
+    <Compile Include="DUTs\ENUMs\teScrewFeeders.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\tsAxisPositionPoint.TcDUT">
+    <Compile Include="DUTs\STRUCTs\tsASTData.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\tsAxisPositions.TcDUT">
+    <Compile Include="DUTs\STRUCTs\tsAxisPositionPoint.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\tsControls.TcDUT">
+    <Compile Include="DUTs\STRUCTs\tsAxisPositions.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\tsCoordinate.TcDUT">
+    <Compile Include="DUTs\STRUCTs\tsControls.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\tsCoordinateBool.TcDUT">
+    <Compile Include="DUTs\STRUCTs\tsCoordinate.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\tsDriveParameter.TcDUT">
+    <Compile Include="DUTs\STRUCTs\tsCoordinateBool.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\tsRecipe.TcDUT">
+    <Compile Include="DUTs\STRUCTs\tsDriveOutputs.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\tsRecipeRow.TcDUT">
+    <Compile Include="DUTs\STRUCTs\tsDriveParameter.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCTs\tsRecipe.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\STRUCTs\tsRecipeRow.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FBs\DRIVEs\AXIS\FB_AXIS_CONTROL.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBs\DRIVEs\AXIS\FB_PTP_AXIS_ABS_CONTROL.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FBs\DRIVEs\PNEU\PNEU_DRIVE.TcPOU">
@@ -99,14 +108,6 @@
       <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="GVLs\IN_OUT_GLV.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="GVLs\IN_GLV.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="GVLs\OUT_GLV.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
@@ -170,6 +171,9 @@
     <Compile Include="POUs\KERNEL POUs\MES_Controller.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\KERNEL POUs\MOVMENT_Controller.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\KERNEL POUs\OPERATIONs\AUTOMATIC_POSITION_TEST.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -206,6 +210,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DUTs" />
+    <Folder Include="DUTs\ENUMs" />
+    <Folder Include="DUTs\STRUCTs" />
     <Folder Include="FBs\DRIVEs" />
     <Folder Include="FBs\DRIVEs\AXIS" />
     <Folder Include="FBs\DRIVEs\PNEU" />
