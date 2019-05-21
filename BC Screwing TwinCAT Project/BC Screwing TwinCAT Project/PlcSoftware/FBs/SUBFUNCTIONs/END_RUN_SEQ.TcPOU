@@ -18,6 +18,7 @@ VAR
 	ftTimePulse:		F_TRIG;
 	tpTimePulse:		TP;
 	lrTargetPos:		LREAL;
+	
 	xTransCondition:	BOOL;	
 	xTransRelease:		BOOL;
 	SFCInit:			BOOL;

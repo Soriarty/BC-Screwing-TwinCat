@@ -29,9 +29,9 @@ fbStartProcess(
 INIT_DataSet();
 //RECIPE_Controller();
 //DRIVE_Controller();
-//MOVMENT_Controller();
-//OPERATION_Controller();
-//HMI_Controller();
+MOVMENT_Controller();
+OPERATION_Controller();
+HMI_Controller();
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">

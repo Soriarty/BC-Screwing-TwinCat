@@ -3,7 +3,6 @@
   <POU Name="FB_PTP_AXIS_ABS_CONTROL" Id="{72ad6629-f379-4e74-8d00-94cd764eedfb}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_PTP_AXIS_ABS_CONTROL
 VAR_INPUT
-	AxisReference:				AXIS_REF;				// Contains all referencies for the NC Axis
 	ControlMode:				BOOL;					// Manual (JOG mode) or Automatic (ABSOLUTE PTP mode) | 0:=Manual 1:=Automatic
 	
 	JogForward:					BOOL;					// Jog the axis in forward direction (based on the JogMode)
@@ -20,6 +19,9 @@ VAR_INPUT
 	
 	SafetyEnable:				BOOL;
 END_VAR
+VAR_IN_OUT
+	AxisReference:				AXIS_REF;				// Contains all referencies for the NC Axis
+END_VAR
 VAR_OUTPUT
 	Debug:						tsDriveOutputs;			// Debug function block output struct
 END_VAR
@@ -32,6 +34,7 @@ VAR
 	MoveJog:					MC_Jog;
 	MoveHalt:					MC_Halt;
 	Reset:						MC_Reset;
+	SoEReset:					FB_SoEReset;
 	Power:						MC_Power;
 END_VAR
 ]]></Declaration>
@@ -53,16 +56,12 @@ CASE AxisState OF
 	
 	MOVESTATE_ENABLE:																	(* enabel power *)
 		Power.Enable :=				TRUE;
-		Power.Enable_Negative :=	TRUE;
-		Power.Enable_Positive :=	TRUE;
 		Power.BufferMode :=			MC_Aborting;
 		
 		IF Power.Status THEN
 			AxisState := MOVESTATE_IDLE;
 		ELSIF Power.Error THEN
 			Power.Enable :=				FALSE;
-			Power.Enable_Negative :=	FALSE;
-			Power.Enable_Positive :=	FALSE;
 			AxisState := MOVESTATE_ERROR;
 		END_IF
 	
@@ -74,12 +73,13 @@ CASE AxisState OF
 			AxisState := MOVESTATE_MANUAL;
 			
 		ELSIF NOT SafetyEnable THEN 
+			Power.Enable :=				FALSE;
 			AxisState := MOVESTATE_ERROR;
 		
 		END_IF
 		
 	MOVESTATE_AUTO:																		(* automatic movment mode *)
-		IF LastTarget=target THEN
+		IF LastTarget=target AND NOT Start THEN
 			AxisState := MOVESTATE_IDLE;
 		ELSE
 			MoveAbs.Position := 	target;
@@ -87,7 +87,7 @@ CASE AxisState OF
 			MoveAbs.BufferMode := 	MC_Aborting;
 			MoveAbs.Execute := 		TRUE;
 			
-			IF MoveAbs.Done THEN
+			IF MoveAbs.Done AND NOT Start THEN
 				MoveAbs.Execute := FALSE;
 				AxisState := MOVESTATE_IDLE;
 				
@@ -101,19 +101,15 @@ CASE AxisState OF
 		MoveJog.Mode := 		JogMode;
 		MoveJog.Velocity := 	(ManualOverride*MaxVelocity)/100;						(* speed reduction in manual movement mode *)
 		
-		IF MoveJog.Done THEN
+		IF MoveJog.Done AND NOT MoveHalt.Done THEN
 			MoveHalt.Execute := 	TRUE;
 			MoveHalt.BufferMode := 	MC_Aborting;
 			
-			IF MoveHalt.Done THEN
+		ELSIF MoveHalt.Done AND NOT MoveJog.Done THEN
 				MoveHalt.Execute := FALSE;
 				AxisState := MOVESTATE_IDLE;
-				
-			ELSIF MoveHalt.CommandAborted OR MoveAbs.Error THEN
-				AxisState := MOVESTATE_ERROR;
-			END_IF	
-			
-		ELSIF MoveJog.CommandAborted OR MoveAbs.Error THEN
+
+		ELSIF MoveJog.CommandAborted OR MoveAbs.Error OR MoveHalt.CommandAborted THEN
 				AxisState := MOVESTATE_ERROR;	
 		END_IF
 	
@@ -127,14 +123,17 @@ CASE AxisState OF
 		END_IF
 	
 	MOVESTATE_RESET:																	(* reset axis functions *)
-		Reset.Execute := TRUE;
-		
-		IF Reset.Done THEN
-			AxisState := MOVESTATE_INIT;
-			
-		ELSIF Reset.Error THEN
-			AxisState := MOVESTATE_INIT; 												(* can't do anything here *)
-			
+		Power.Enable :=				FALSE;		
+		SoEReset.Execute := TRUE;
+		SoEReset.Timeout := T#10S;
+		IF NOT SoEReset.Busy THEN
+			SoEReset.Execute := FALSE;
+			Reset.Execute := TRUE;
+			IF Reset.Done THEN
+				AxisState := MOVESTATE_INIT;	
+			ELSIF Reset.Error THEN
+				AxisState := MOVESTATE_INIT; 												(* can't do anything here *)
+			END_IF
 		END_IF
 	
 END_CASE
@@ -1447,7 +1446,7 @@ ACT_RESET();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"Power.Enable_Positive"</v>
+                                <v n="Operand">"TRUE"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1466,7 +1465,7 @@ ACT_RESET();]]></ST>
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"Power.Enable_Negative"</v>
+                                <v n="Operand">"TRUE"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1816,6 +1815,211 @@ ACT_RESET();]]></ST>
                     <l2 n="Connectors" />
                     <v n="Id">1L</v>
                   </o>
+                  <o>
+                    <v n="ILActive">false</v>
+                    <v n="FBDValid">false</v>
+                    <v n="ILValid">false</v>
+                    <l2 n="ILLines" />
+                    <v n="Comment">""</v>
+                    <v n="Title">""</v>
+                    <v n="Label">""</v>
+                    <v n="OutCommented">false</v>
+                    <l2 n="NetworkItems" cet="BoxTreeBox">
+                      <o>
+                        <v n="BoxType">"FB_SoEReset"</v>
+                        <o n="Instance" t="Operand">
+                          <v n="Operand">"SoEReset"</v>
+                          <v n="Type">"FB_SoEReset"</v>
+                          <v n="Comment">""</v>
+                          <v n="SymbolComment">""</v>
+                          <v n="Address">""</v>
+                          <o n="Flags" t="Flags">
+                            <v n="Flags">0</v>
+                            <v n="Fixed">false</v>
+                            <v n="Extensible">false</v>
+                          </o>
+                          <v n="LValue">false</v>
+                          <v n="Boolean">false</v>
+                          <v n="IsInstance">true</v>
+                          <v n="Id">20L</v>
+                        </o>
+                        <o n="OutputItems" t="OutputItemList">
+                          <l2 n="OutputItems" cet="Operand">
+                            <n />
+                            <o>
+                              <v n="Operand">""</v>
+                              <n n="Type" />
+                              <v n="Comment">""</v>
+                              <v n="SymbolComment">""</v>
+                              <v n="Address">""</v>
+                              <o n="Flags" t="Flags">
+                                <v n="Flags">0</v>
+                                <v n="Fixed">false</v>
+                                <v n="Extensible">false</v>
+                              </o>
+                              <v n="LValue">true</v>
+                              <v n="Boolean">false</v>
+                              <v n="IsInstance">false</v>
+                              <v n="Id">22L</v>
+                            </o>
+                            <o>
+                              <v n="Operand">""</v>
+                              <n n="Type" />
+                              <v n="Comment">""</v>
+                              <v n="SymbolComment">""</v>
+                              <v n="Address">""</v>
+                              <o n="Flags" t="Flags">
+                                <v n="Flags">0</v>
+                                <v n="Fixed">false</v>
+                                <v n="Extensible">false</v>
+                              </o>
+                              <v n="LValue">true</v>
+                              <v n="Boolean">false</v>
+                              <v n="IsInstance">false</v>
+                              <v n="Id">23L</v>
+                            </o>
+                            <o>
+                              <v n="Operand">""</v>
+                              <n n="Type" />
+                              <v n="Comment">""</v>
+                              <v n="SymbolComment">""</v>
+                              <v n="Address">""</v>
+                              <o n="Flags" t="Flags">
+                                <v n="Flags">0</v>
+                                <v n="Fixed">false</v>
+                                <v n="Extensible">false</v>
+                              </o>
+                              <v n="LValue">true</v>
+                              <v n="Boolean">false</v>
+                              <v n="IsInstance">false</v>
+                              <v n="Id">24L</v>
+                            </o>
+                          </l2>
+                        </o>
+                        <o n="Flags" t="Flags">
+                          <v n="Flags">0</v>
+                          <v n="Fixed">true</v>
+                          <v n="Extensible">false</v>
+                        </o>
+                        <n n="InputFlags" />
+                        <l2 n="InputItems" cet="BoxTreeOperand">
+                          <o>
+                            <o n="Operand" t="Operand">
+                              <v n="Operand">"''"</v>
+                              <v n="Type">"STRING(INT#0)"</v>
+                              <v n="Comment">""</v>
+                              <v n="SymbolComment">""</v>
+                              <v n="Address">""</v>
+                              <o n="Flags" t="Flags">
+                                <v n="Flags">0</v>
+                                <v n="Fixed">false</v>
+                                <v n="Extensible">false</v>
+                              </o>
+                              <v n="LValue">false</v>
+                              <v n="Boolean">false</v>
+                              <v n="IsInstance">false</v>
+                              <v n="Id">17L</v>
+                            </o>
+                            <v n="Id">16L</v>
+                          </o>
+                          <o>
+                            <o n="Operand" t="Operand">
+                              <v n="Operand">"SoEReset.Execute"</v>
+                              <v n="Type">"BOOL"</v>
+                              <v n="Comment">""</v>
+                              <v n="SymbolComment">""</v>
+                              <v n="Address">""</v>
+                              <o n="Flags" t="Flags">
+                                <v n="Flags">0</v>
+                                <v n="Fixed">false</v>
+                                <v n="Extensible">false</v>
+                              </o>
+                              <v n="LValue">false</v>
+                              <v n="Boolean">false</v>
+                              <v n="IsInstance">false</v>
+                              <v n="Id">19L</v>
+                            </o>
+                            <v n="Id">18L</v>
+                          </o>
+                          <o>
+                            <o n="Operand" t="Operand">
+                              <v n="Operand">"SoEReset.Timeout"</v>
+                              <v n="Type">"TIME"</v>
+                              <v n="Comment">""</v>
+                              <v n="SymbolComment">""</v>
+                              <v n="Address">""</v>
+                              <o n="Flags" t="Flags">
+                                <v n="Flags">0</v>
+                                <v n="Fixed">false</v>
+                                <v n="Extensible">false</v>
+                              </o>
+                              <v n="LValue">false</v>
+                              <v n="Boolean">false</v>
+                              <v n="IsInstance">false</v>
+                              <v n="Id">26L</v>
+                            </o>
+                            <v n="Id">25L</v>
+                          </o>
+                          <o>
+                            <o n="Operand" t="Operand">
+                              <v n="Operand">"AxisReference"</v>
+                              <v n="Type">"AXIS_REF"</v>
+                              <v n="Comment">""</v>
+                              <v n="SymbolComment">""</v>
+                              <v n="Address">""</v>
+                              <o n="Flags" t="Flags">
+                                <v n="Flags">0</v>
+                                <v n="Fixed">false</v>
+                                <v n="Extensible">false</v>
+                              </o>
+                              <v n="LValue">false</v>
+                              <v n="Boolean">false</v>
+                              <v n="IsInstance">false</v>
+                              <v n="Id">28L</v>
+                            </o>
+                            <v n="Id">27L</v>
+                          </o>
+                        </l2>
+                        <o n="InputParam" t="ParamList">
+                          <l2 n="Names" cet="String">
+                            <v>NetId</v>
+                            <v>Execute</v>
+                            <v>Timeout</v>
+                            <v>Axis</v>
+                          </l2>
+                          <l2 n="Types" cet="String">
+                            <v>T_AmsNetId</v>
+                            <v>BOOL</v>
+                            <v>TIME</v>
+                            <v>AXIS_REF[REF]</v>
+                          </l2>
+                        </o>
+                        <o n="OutputParam" t="ParamList">
+                          <l2 n="Names" cet="String">
+                            <v>Busy</v>
+                            <v>Error</v>
+                            <v>AdsErrId</v>
+                            <v>SercosErrId</v>
+                          </l2>
+                          <l2 n="Types" cet="String">
+                            <v>BOOL</v>
+                            <v>BOOL</v>
+                            <v>UINT</v>
+                            <v>UINT</v>
+                          </l2>
+                        </o>
+                        <v n="CallType" t="Operator">FunctionBlock</v>
+                        <v n="EN">false</v>
+                        <v n="ENO">false</v>
+                        <n n="STSnippet" />
+                        <v n="ContainsExtensibleInputs">false</v>
+                        <v n="ProvidesSTSnippet">false</v>
+                        <v n="Id">21L</v>
+                      </o>
+                    </l2>
+                    <l2 n="Connectors" />
+                    <v n="Id">13L</v>
+                  </o>
                 </l2>
                 <v n="BranchCounter">0</v>
                 <v n="ValidIds">true</v>
@@ -1854,15 +2058,13 @@ ACT_RESET();]]></ST>
       <LineId Id="121" Count="3" />
       <LineId Id="47" Count="0" />
       <LineId Id="41" Count="0" />
-      <LineId Id="48" Count="1" />
       <LineId Id="77" Count="0" />
       <LineId Id="188" Count="0" />
       <LineId Id="78" Count="0" />
       <LineId Id="80" Count="0" />
       <LineId Id="92" Count="0" />
       <LineId Id="82" Count="0" />
-      <LineId Id="186" Count="1" />
-      <LineId Id="185" Count="0" />
+      <LineId Id="186" Count="0" />
       <LineId Id="83" Count="0" />
       <LineId Id="79" Count="0" />
       <LineId Id="76" Count="0" />
@@ -1873,6 +2075,7 @@ ACT_RESET();]]></ST>
       <LineId Id="101" Count="1" />
       <LineId Id="132" Count="0" />
       <LineId Id="128" Count="0" />
+      <LineId Id="250" Count="0" />
       <LineId Id="130" Count="0" />
       <LineId Id="158" Count="0" />
       <LineId Id="100" Count="0" />
@@ -1896,12 +2099,9 @@ ACT_RESET();]]></ST>
       <LineId Id="160" Count="1" />
       <LineId Id="171" Count="0" />
       <LineId Id="162" Count="1" />
-      <LineId Id="165" Count="2" />
-      <LineId Id="170" Count="0" />
-      <LineId Id="168" Count="0" />
-      <LineId Id="180" Count="0" />
-      <LineId Id="178" Count="1" />
-      <LineId Id="169" Count="0" />
+      <LineId Id="165" Count="0" />
+      <LineId Id="245" Count="0" />
+      <LineId Id="239" Count="2" />
       <LineId Id="177" Count="0" />
       <LineId Id="174" Count="1" />
       <LineId Id="164" Count="0" />
@@ -1913,13 +2113,13 @@ ACT_RESET();]]></ST>
       <LineId Id="135" Count="0" />
       <LineId Id="56" Count="1" />
       <LineId Id="38" Count="0" />
-      <LineId Id="112" Count="0" />
-      <LineId Id="118" Count="0" />
-      <LineId Id="113" Count="1" />
-      <LineId Id="136" Count="0" />
-      <LineId Id="115" Count="1" />
-      <LineId Id="137" Count="0" />
-      <LineId Id="58" Count="1" />
+      <LineId Id="253" Count="0" />
+      <LineId Id="252" Count="0" />
+      <LineId Id="234" Count="0" />
+      <LineId Id="232" Count="1" />
+      <LineId Id="227" Count="4" />
+      <LineId Id="225" Count="1" />
+      <LineId Id="59" Count="0" />
       <LineId Id="39" Count="0" />
       <LineId Id="182" Count="0" />
       <LineId Id="181" Count="0" />

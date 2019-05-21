@@ -3268,15 +3268,15 @@ External Setpoint Generation:
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
-							<Name>IN_OUT_GLV.I_xVacuumIntake_OK</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>AST40_GLV.G_sTx</Name>
 							<Comment>
 								<![CDATA[ struct for the input mapping ]]>
 							</Comment>
 							<Type GUID="{8D8FE098-29F0-4B78-B3BA-F9D4FFD6C39F}" Namespace="AST_V1_0">tAST40Rx</Type>
+						</Var>
+						<Var>
+							<Name>IN_OUT_GLV.I_xVacuumIntake_OK</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IN_OUT_GLV.I_xStart</Name>
@@ -3288,10 +3288,6 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>IN_OUT_GLV.I_xSafetyDoorClosed</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>IN_OUT_GLV.I_xServoFanDiag</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -3489,6 +3485,10 @@ External Setpoint Generation:
 ]]>
 								</Comment>
 							</SubVar>
+						</Var>
+						<Var>
+							<Name>IN_OUT_GLV.I_xServoFanDiag</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IN_OUT_GLV.I_xPneumatic_OK</Name>

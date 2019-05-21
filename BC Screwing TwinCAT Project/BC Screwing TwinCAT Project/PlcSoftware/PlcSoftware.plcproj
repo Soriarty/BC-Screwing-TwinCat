@@ -20,6 +20,9 @@
     <Compile Include="DUTs\ENUMs\teDriveState.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DUTs\ENUMs\teOperationMode.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\ENUMs\teScrewFeeders.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -53,16 +56,10 @@
     <Compile Include="DUTs\STRUCTs\tsRecipeRow.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FBs\DRIVEs\AXIS\FB_AXIS_CONTROL.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="FBs\DRIVEs\AXIS\FB_PTP_AXIS_ABS_CONTROL.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FBs\DRIVEs\PNEU\PNEU_DRIVE.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FBs\HELPERs\REFACTOR_LREAL.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FBs\RECIPEs\CONVERTERs\ConvertCommandToString.TcPOU">
@@ -153,9 +150,6 @@
     <Compile Include="POUs\KERNEL POUs\AST40_Controller.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\KERNEL POUs\DRIVE_Controller.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\KERNEL POUs\HMI_Controller.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -181,6 +175,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\KERNEL POUs\OPERATIONs\AUTOMATIC_SCREW_PICKUP_TEST.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\KERNEL POUs\OPERATIONs\SUBOPERATIONs\DROP_SCREW.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\KERNEL POUs\OPERATIONs\SUBOPERATIONs\END_RUN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\KERNEL POUs\OPERATIONs\SUBOPERATIONs\HOME_RUN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\KERNEL POUs\OPERATIONs\SUBOPERATIONs\PICKUP_SCREW.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\KERNEL POUs\OPERATIONs\SUBOPERATIONs\POSITION_RUN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\KERNEL POUs\OPERATION_Controller.TcPOU">
@@ -226,6 +235,7 @@
     <Folder Include="POUs\JIG POUs\JIG TYPE POUs" />
     <Folder Include="POUs\KERNEL POUs\MES POUs" />
     <Folder Include="POUs\KERNEL POUs\OPERATIONs" />
+    <Folder Include="POUs\KERNEL POUs\OPERATIONs\SUBOPERATIONs" />
     <Folder Include="TASKs" />
     <Folder Include="POUs" />
     <Folder Include="POUs\MAIN POUs" />

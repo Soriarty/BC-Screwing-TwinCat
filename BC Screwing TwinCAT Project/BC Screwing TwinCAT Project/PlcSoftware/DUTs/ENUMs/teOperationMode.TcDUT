@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="teOperationMode" Id="{d5f5147b-2106-4f56-b7a1-b079308e0b49}">
+    <Declaration><![CDATA[TYPE teOperationMode :
+(
+	OPMODE_REFERENCETEACH,
+	OPMODE_AUTOSCREWING,
+	OPMODE_PICKUPTEST,
+	OPMODE_POSITIONTEST
+) UDINT;
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
